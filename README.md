@@ -1,5 +1,5 @@
 # zq-react-ui-pack
-A collection useful react libraries when develop react based  
+A collection useful react libraries when develop react based application 
 
 ## css
    [styled-components](https://github.com/styled-components/styled-components): fp 编程的方式解决css依赖问题
