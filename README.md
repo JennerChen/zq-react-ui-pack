@@ -14,6 +14,10 @@ A collection useful react libraries when develop react based application
 ## javascript
    [Popper](https://github.com/FezVrasta/popper.js): 弹层元素的定位引擎, 适用于构建基础弹层组件
    
+   [react-motion](https://github.com/chenglou/react-motion): js实现声明式动画,高度可控,但api不友善，写法太抽象冗余。
+   
+   [react-spring](https://github.com/drcmda/react-spring): 基于react-motion, api相对于容易理解，全新动画库，不稳定。
+   
 ## other
    [slate](https://github.com/ianstormtaylor/slate): 富文本编辑器
 
