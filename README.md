@@ -24,4 +24,6 @@ A collection useful react libraries when develop react based application
    
 ## other
    [slate](https://github.com/ianstormtaylor/slate): 富文本编辑器
+   
+   [relaxed](https://github.com/RelaxedJS/ReLaXed): pdf generator, 使用markdown, html来生成 pdf文件
 
