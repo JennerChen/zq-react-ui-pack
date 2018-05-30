@@ -1,8 +1,34 @@
 {
-  "dependencies": {
+  "scripts": {
+    "precommit": "lint-staged",
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "clean:node_modules": "rimraf ./node_modules",
+    "build": "rollup -c"
+  },
+  "devDependencies": {
+    "@storybook/addon-actions": "^3.4.6",
+    "@storybook/react": "^3.4.6",
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^6.1.0",
+    "prettier": "^1.10.2",
+    "prop-types": "^15.6.1",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
-    "rollup": "^0.59.4"
+    "rimraf": "^2.6.2",
+    "rollup": "^0.59.4",
+    "rollup-plugin-babel": "^3.0.4",
+    "rollup-plugin-commonjs": "^9.1.3",
+    "rollup-plugin-json": "^3.0.0",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "styled-components": "^3.3.0",
+    "webpack": "^3.10.0"
   },
   "name": "zq-react-ui-pack",
   "version": "0.0.1",
@@ -12,6 +38,16 @@
   "author": "zhangqing <zhangqing@suiyi.com.cn>",
   "license": "MIT",
   "peerDependencies": {
-    "moment": "*"
-  }
+    "moment": "*",
+    "react": "^15.0.0 || ^16.0.0",
+    "react-dom": "^15.0.0 || ^16.0.0",
+    "styled-components": "^2.0.0 || ^3.0.0"
+  },
+  "lint-staged": {
+    "*.{js,json,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "dependencies": {}
 }

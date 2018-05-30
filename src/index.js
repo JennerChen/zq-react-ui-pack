@@ -1,1 +1,3 @@
-console.log("hello to zq-react-ui-pack");
+const Demo = require("./test2");
+
+module.exports = Demo.default ? Demo.default : Demo;
