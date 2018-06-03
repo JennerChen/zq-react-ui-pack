@@ -1,22 +1,29 @@
-//import json from 'rollup-plugin-json';
+import json from 'rollup-plugin-json';
 import babel from "rollup-plugin-babel";
 import resolve from "rollup-plugin-node-resolve";
 import commonjs from "rollup-plugin-commonjs";
+import filesize from "rollup-plugin-filesize";
+import clear from "rollup-plugin-clear";
+import license from "rollup-plugin-license";
 
 export default {
   input: "src/index.js",
   output: {
-    file: "build/bundle.js",
+    file: "build/zq-react-ui-pack.js",
     format: "cjs"
   },
   external: ["react", "styled-components"],
   plugins: [
+    clear({
+      targets: ["./build"]
+    }),
+    json(),
     resolve({
       jsnext: true,
       main: true
     }),
     babel({
-      exclude: "node_modules/**" // only transpile our source code
+      exclude: "node_modules/**"
     }),
     commonjs({
       // non-CommonJS modules will be ignored, but you can also
@@ -32,16 +39,12 @@ export default {
 
       // if true then uses of `global` won't be dealt with by this plugin
       ignoreGlobal: false // Default: false
-
-      // explicitly specify unresolvable named exports
-      // (see below for more details)
-      //            namedExports: { './src/index.js': ['foo', 'bar' ] },  // Default: undefined
-
-      // sometimes you have to leave require statements
-      // unconverted. Pass an array containing the IDs
-      // or a `id => boolean` function. Only use this
-      // option if you know what you're doing!
-      //            ignore: [ 'conditional-runtime-dependency' ]
+    }),
+    license({
+      banner: `/** zq-react-ui-pack - (c) Qing Zhang - MIT Licensed */`
+    }),
+    filesize({
+      showGzippedSize:true
     })
   ]
 };

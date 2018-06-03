@@ -1,0 +1,17 @@
+node_modules/
+examples/
+static/
+src/**
+docs/
+
+.storybook
+.prettierrc
+.gitignore
+.idea
+.babelrc
+.eslintrc
+rollup.config.js
+yarn.lock
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
