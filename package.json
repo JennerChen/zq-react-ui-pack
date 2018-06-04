@@ -4,9 +4,7 @@
     "storybook": "start-storybook -p 9001 -c .storybook",
     "clean:node_modules": "rimraf ./node_modules",
     "build": "rollup -c ./scripts/rollup.config.js",
-    "_prepublishOnly": "node ./scripts/publish",
-    "_check:build": "nscript ./scripts/publish",
-    "check:publish": "node ./scripts/publish"
+    "prepublishOnly": "node ./scripts/publish"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.4.6",
@@ -36,7 +34,7 @@
     "styled-components": "^3.3.0"
   },
   "name": "zq-react-ui-pack",
-  "version": "0.0.6",
+  "version": "0.0.4",
   "description": "zq ui tools for build web application",
   "main": "build/zq-react-ui-pack.js",
   "jsnext:main": "build/zq-react-ui-pack.js",

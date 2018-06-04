@@ -50,7 +50,7 @@
 
   shell.exec("yarn run build");
 
-  if (false){
+  if (gitPush){
 
     shell.echo("开始 Push 到仓库完成 ...");
 
