@@ -3,6 +3,7 @@ examples/
 static/
 src/**
 docs/
+stories/
 
 .storybook
 .prettierrc
