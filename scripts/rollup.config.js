@@ -5,6 +5,7 @@ import commonjs from "rollup-plugin-commonjs";
 import filesize from "rollup-plugin-filesize";
 import clear from "rollup-plugin-clear";
 import license from "rollup-plugin-license";
+import eslint from 'rollup-plugin-eslint';
 
 export default {
   input: "src/index.js",
@@ -18,6 +19,10 @@ export default {
       targets: ["./build"]
     }),
     json(),
+    eslint({
+      throwOnError:true,
+      throwOnWarning: true
+    }),
     resolve({
       jsnext: true,
       main: true
