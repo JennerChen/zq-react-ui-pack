@@ -41,7 +41,7 @@ export default {
       ignoreGlobal: false // Default: false
     }),
     license({
-      banner: `/** zq-react-ui-pack - (c) Qing Zhang - MIT Licensed */`
+      banner: `/** zq-react-ui-pack - Copyright (c) 2017 Qing  Zhang - MIT Licensed */`
     }),
     filesize({
       showGzippedSize:true
