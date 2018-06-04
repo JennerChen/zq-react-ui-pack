@@ -1,8 +1,0 @@
-{
-  "devDependencies": {
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "styled-components": "^2.3.3",
-    "webpack": "^3.10.0"
-  }
-}
