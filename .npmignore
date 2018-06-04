@@ -4,6 +4,7 @@ static/
 src/**
 docs/
 stories/
+scripts/
 
 .storybook
 .prettierrc

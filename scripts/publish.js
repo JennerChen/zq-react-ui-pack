@@ -52,7 +52,7 @@
 
   if (gitPush){
 
-    shell.echo("开始 Push 到仓库完成 ...");
+    shell.echo("开始 Push 到仓库 ...");
 
     shell.exec(`git tag ${ version }`);
     shell.exec(`git push`);
