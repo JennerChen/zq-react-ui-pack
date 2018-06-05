@@ -6811,6 +6811,10 @@ styled-components@^3.3.0:
     stylis-rule-sheet "^0.0.10"
     supports-color "^3.2.3"
 
+styled-icons@^2.2.0:
+  version "2.2.0"
+  resolved "http://registry.npm.taobao.org/styled-icons/download/styled-icons-2.2.0.tgz#5d638c73e205f9ecf47cdc5f92bd355075a66477"
+
 styled-tools@^0.5.0:
   version "0.5.0"
   resolved "http://registry.npm.taobao.org/styled-tools/download/styled-tools-0.5.0.tgz#3eaddb689f00ce8f8efd101b45eb14ce9e79e363"
