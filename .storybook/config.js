@@ -1,8 +1,7 @@
 import React from "react";
 import { configure, addDecorator } from "@storybook/react";
-import { Provider } from "../src";
 
-const ThemeProviderWrap = storyFn => <Provider>{storyFn()}</Provider>;
+const ThemeProviderWrap = storyFn => <div id={ "test-id" } >{storyFn()}</div>;
 
 addDecorator(ThemeProviderWrap);
 

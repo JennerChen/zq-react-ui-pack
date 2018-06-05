@@ -1,11 +1,10 @@
-console.log("hello world, just create npm package");
+import "./css";
 
-var fn = () => {
-  var d = "ddd";
-};
+import * as _utils from "./util";
 
-let num = Math.random();
+export { default as Button } from "./button";
 
-console.log(num == 0.5);
-module.exports = {};
+export { default as Card } from "./card";
+export const utils = _utils;
+
 //  Demo.default ? Demo.default : Demo;

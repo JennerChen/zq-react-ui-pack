@@ -13,7 +13,14 @@ export default {
     file: "build/zq-react-ui-pack.js",
     format: "cjs"
   },
-  external: ["react", "styled-components"],
+  external: [
+    "react",
+    "react-dom",
+    "styled-components",
+    "mobx",
+    "react-spring",
+    "prop-types"
+  ],
   plugins: [
     clear({
       targets: ["./build"]
@@ -21,7 +28,7 @@ export default {
     json(),
     eslint({
       throwOnError:true,
-      throwOnWarning: true
+//      throwOnWarning: true
     }),
     resolve({
       jsnext: true,

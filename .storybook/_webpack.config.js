@@ -1,5 +1,4 @@
 const path = require("path");
-const FlowWebpackPlugin = require("flow-webpack-plugin");
 
 // Export a function. Accept the base config as the only param.
 module.exports = (storybookBaseConfig, configType) => {
@@ -13,7 +12,6 @@ module.exports = (storybookBaseConfig, configType) => {
   // 		loaders: ["style-loader", "css-loader", "sass-loader"],
   // 		include: path.resolve(__dirname, '../')
   // 	});
-  storybookBaseConfig.plugins.push(new FlowWebpackPlugin());
   // Return the altered config
   return storybookBaseConfig;
 };

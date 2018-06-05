@@ -1,90 +1,54 @@
 import React, { Component } from "react";
+import styled from "styled-components";
 import PropTypes from "prop-types";
-import styled, { css } from "styled-components";
-// import tag from 'tag-hoc'
-import { Button as RebassBtn } from "rebass";
-import cleanProp from "../util/cleanProp";
+import { prop, switchProp } from "styled-tools";
+import { withRipple } from "../util";
 
-const LoadingCover = css`
-  &:before {
-    position: absolute;
-    top: -1px;
-    left: -1px;
-    bottom: -1px;
-    right: -1px;
-    background: #fff;
-    opacity: 0.35;
-    content: "";
-    border-radius: inherit;
-    z-index: 1;
-    transition: opacity 0.2s;
-    pointer-events: none;
-    display: block;
-  }
-`;
-
-const Disabled = css`
-  color: rgba(0, 0, 0, 0.25);
-  background-color: #f5f5f5;
-  border-color: #d9d9d9;
-  cursor: not-allowed;
-`;
-
-const Btn = styled(cleanProp(["showCover"])(RebassBtn))`
-  font-weight: normal;
-  transition: all 0.3s;
+const BaseBtn = styled.button`
+  border: none;
   position: relative;
-  border: 1px solid transparent;
-  ${props => (props.showCover ? LoadingCover : "")};
-  ${props => (props.disabled ? Disabled : "")};
+  font-size: 12px;
+  background-color: ${switchProp("type", {
+    default: "#fff",
+    primary: "#26a69a"
+  })};
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  text-align: center;
+  outline: none;
+  border-radius: 4px;
+  padding: 0 16px;
+  height: 30px;
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+    0px 3px 1px -2px rgba(0, 0, 0, 0.12);
 `;
 
+@withRipple
 export default class Button extends Component {
   static propTypes = {
-    style: PropTypes.object,
-    onClick: PropTypes.func,
-    disabled: PropTypes.bool
+    type: PropTypes.oneOf(["primary", "default"]),
+    shape: PropTypes.oneOf(["circle", "default"])
   };
 
   static defaultProps = {
-    style: {},
-    onClick: () => {},
-    disabled: false
+    type: "default",
+    shape: "default"
   };
 
   state = {
-    showCover: false
+    toggle: false
   };
 
-  handleClick = e => {
-    if (this.props.disabled || this.state.showCover) {
-      return;
-    }
-
-    let result = this.props.onClick(e);
-    if (result instanceof Promise) {
-      this.setState({
-        showCover: true
-      });
-      result.finally(() => {
-        this.setState({
-          showCover: false
-        });
-      });
-    } else {
-      this.setState({
-        showCover: false
-      });
-    }
-  };
+  setToggle(flag) {
+    this.setState({
+      toggle: flag
+    });
+  }
 
   render() {
-    const { onClick, disabled, ...rest } = this.props;
-    const { showCover } = this.state;
-    return (
-      <Btn showCover={showCover} {...rest} onClick={this.handleClick} disabled={disabled}>
-        {this.props.children}
-      </Btn>
-    );
+    const { onClick, children, ...rest } = this.props;
+    const { toggle } = this.state;
+    return <BaseBtn {...rest}>{children}</BaseBtn>;
   }
 }
