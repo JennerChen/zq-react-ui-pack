@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 import { stripUnit } from "polished";
 import { withRipple } from "../util";
-import styles from "../styles";
+import IconButton from "./IconButton";
 
 import { BaseBtn, LinkBtn } from "./BaseBtn";
 
@@ -15,10 +14,10 @@ const transStyleLineHeight = style => {
 };
 
 @withRipple
-export default class Button extends Component {
+class Button extends Component {
   static propTypes = {
     type: PropTypes.oneOf(["primary", "default", "revert"]),
-    shape: PropTypes.oneOf(["circle", "default"]),
+    shape: PropTypes.oneOf(["default"]),
     tagName: PropTypes.oneOf(["button", "a"])
   };
 
@@ -29,24 +28,18 @@ export default class Button extends Component {
     style: {}
   };
 
-  handleOnClick = e => {
-    if (this.props.onClick) {
-      this.props.onClick(e);
-    }
-  };
-
   render() {
-    const { onClick, tagName, children, shape, style, ...rest } = this.props;
+    const { tagName, children, shape, style, ...rest } = this.props;
 
     const Comp = tagName === "button" ? BaseBtn : LinkBtn;
     return (
-      <Comp
-        shape={shape}
-        onClick={this.handleOnClick}
-        style={transStyleLineHeight(style)}
-        {...rest}>
+      <Comp shape={shape} style={transStyleLineHeight(style)} {...rest}>
         {children}
       </Comp>
     );
   }
 }
+
+Button.Icon = IconButton;
+
+export default Button;

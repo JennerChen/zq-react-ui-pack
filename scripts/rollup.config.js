@@ -1,11 +1,11 @@
-import json from 'rollup-plugin-json';
+import json from "rollup-plugin-json";
 import babel from "rollup-plugin-babel";
 import resolve from "rollup-plugin-node-resolve";
 import commonjs from "rollup-plugin-commonjs";
 import filesize from "rollup-plugin-filesize";
 import clear from "rollup-plugin-clear";
 import license from "rollup-plugin-license";
-import eslint from 'rollup-plugin-eslint';
+import eslint from "rollup-plugin-eslint";
 
 export default {
   input: "src/index.js",
@@ -19,7 +19,9 @@ export default {
     "styled-components",
     "mobx",
     "react-spring",
-    "prop-types"
+    "prop-types",
+    "styled-tools",
+    "polished"
   ],
   plugins: [
     clear({
@@ -27,8 +29,8 @@ export default {
     }),
     json(),
     eslint({
-      throwOnError:true,
-//      throwOnWarning: true
+      throwOnError: true
+      //      throwOnWarning: true
     }),
     resolve({
       jsnext: true,
@@ -56,7 +58,7 @@ export default {
       banner: `/** zq-react-ui-pack - Copyright (c) 2017 Qing  Zhang - MIT Licensed */`
     }),
     filesize({
-      showGzippedSize:true
+      showGzippedSize: true
     })
   ]
 };

@@ -1,8 +1,7 @@
-import React, { Component } from "react";
 import styled, { css } from "styled-components";
 import styles from "../styles";
 import { switchProp, ifProp } from "styled-tools";
-import { darken, stripUnit } from "polished";
+import { darken } from "polished";
 
 export const BaseBtn = styled.button`
   border: none;
