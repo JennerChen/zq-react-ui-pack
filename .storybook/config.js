@@ -1,7 +1,10 @@
 import React from "react";
-import { configure, addDecorator } from "@storybook/react";
+import { configure, addDecorator, setAddon } from "@storybook/react";
+import JSXAddon from 'storybook-addon-jsx';
 
-const ThemeProviderWrap = storyFn => <div id={ "test-id" } >{storyFn()}</div>;
+setAddon(JSXAddon);
+
+const ThemeProviderWrap = storyFn => <div>{storyFn()}</div>;
 
 addDecorator(ThemeProviderWrap);
 

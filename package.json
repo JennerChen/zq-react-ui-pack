@@ -33,6 +33,7 @@
     "prop-types": "^15.6.1",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
+    "react-tippy": "^1.0.0",
     "rimraf": "^2.6.2",
     "rollup": "^0.59.4",
     "rollup-plugin-babel": "^3.0.4",
@@ -44,10 +45,12 @@
     "rollup-plugin-license": "^0.6.0",
     "rollup-plugin-node-resolve": "^3.3.0",
     "shelljs": "^0.8.2",
-    "styled-components": "^3.3.0"
+    "storybook-addon-jsx": "^5.3.0",
+    "styled-components": "^3.3.0",
+    "styled-icons": "^2.2.0"
   },
   "name": "zq-react-ui-pack",
-  "version": "0.0.6",
+  "version": "0.0.6-beta.1527",
   "description": "zq ui tools for build web application",
   "main": "build/zq-react-ui-pack.js",
   "jsnext:main": "build/zq-react-ui-pack.js",
@@ -61,8 +64,8 @@
     "react": "^15.0.0 || ^16.0.0",
     "react-dom": "^15.0.0 || ^16.0.0",
     "styled-components": "^2.0.0 || ^3.0.0",
-    "styled-tools": "^0.5.0",
-    "styled-icons": "^2.2.0"
+    "styled-icons": "^2.2.0",
+    "styled-tools": "^0.5.0"
   },
   "lint-staged": {
     "src/**/*.{js,json,md}": [
@@ -73,6 +76,7 @@
   "dependencies": {
     "polished": "^1.9.2",
     "react-spring": "^5.3.8",
+    "react-tippy": "^1.0.0",
     "styled-tools": "^0.5.0"
   }
 }

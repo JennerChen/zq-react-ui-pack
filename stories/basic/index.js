@@ -4,6 +4,6 @@ import Buttons from "./buttons";
 import GridLayout from "./GridLayout";
 
 storiesOf("基础组件", module)
-  .add("按钮（Button）", () => <Buttons />)
-  .add("布局(Grid)", () => <GridLayout/>)
+  .addWithJSX("按钮（Button）", () => <Buttons />)
+  .addWithJSX("布局(Grid)", () => <GridLayout/>)
 ;

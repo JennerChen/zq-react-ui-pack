@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Flex, Item, flex, item } from "../../src";
 import styled from "styled-components";
-
+import { Tooltip } from "react-tippy";
 const FlexRow = styled(Flex)`
   min-height: 100px;
   border: 1px solid gray;
@@ -24,7 +24,10 @@ export default class extends Component {
       <div>
         布局, 使用 flex布局
         <FlexRow>
-          <FlexItem flex={1} />
+          <Tooltip title={ "123" }>
+            <FlexItem flex={1} />
+          </Tooltip>
+
 
           <FlexItem flex={1} />
 
