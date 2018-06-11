@@ -38,10 +38,10 @@
 ```
 prop              | type                    | default
 --------------| ------------------ |------------------|
-type | string| 
+type | string| "
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ5MDk4MDA3OCwxOTgyMDcyMjYyLC0zNz
+eyJoaXN0b3J5IjpbLTg0OTI4ODA1MiwtNDkwOTgwMDc4LC0zNz
 M3NDIwMiwtMTE2MTY2NzcyLDEwNjY5OTI2NzAsODcyMzkzNTg5
 LDEzNzUwODU3MSwxNDIwOTA1NjQwLC0xMDA1NTM1MzI0XX0=
 -->
