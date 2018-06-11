@@ -48,9 +48,15 @@ type | string| `default`| 按钮样式, `[primary,default,revert]`
 shape| string| `default`| 按钮形状 `[default]`
 tagName| string | `button`| 按钮html标签 `[button,a]` e.g. 例如使用 `a`标签， 那么 最后渲染在页面的按钮会是 `<a>按钮</a>` 
 
+#### Button.Icon
+```javascript
+import { Button } from "zq-react-ui-pack";
+<Button.Icon>按钮</Button.Icon>
+```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA1MjgyNDgwMCwtMTM1NTYxNjMxOSwtMT
-cyMTUyMzA3LC0zODk3Njg2ODMsLTU0MzcwNjQ4NCwtMzczNzQy
-MDIsLTExNjE2Njc3MiwxMDY2OTkyNjcwLDg3MjM5MzU4OSwxMz
-c1MDg1NzEsMTQyMDkwNTY0MCwtMTAwNTUzNTMyNF19
+eyJoaXN0b3J5IjpbMTEyOTA5MjQ3MiwxMDUyODI0ODAwLC0xMz
+U1NjE2MzE5LC0xNzIxNTIzMDcsLTM4OTc2ODY4MywtNTQzNzA2
+NDg0LC0zNzM3NDIwMiwtMTE2MTY2NzcyLDEwNjY5OTI2NzAsOD
+cyMzkzNTg5LDEzNzUwODU3MSwxNDIwOTA1NjQwLC0xMDA1NTM1
+MzI0XX0=
 -->
