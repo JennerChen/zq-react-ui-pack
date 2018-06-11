@@ -40,10 +40,10 @@ prop| type | default| desc
 --------------| ------------------ |------------------|----|
 type | string| "default"| 按钮样式, ["primary","default","revert]
 shape| string| "default"| 按钮形状 ["default"]
-tagName| string | "button"| 按钮html标签 e.g. ru'guo
+tagName| string | "button"| 按钮html标签 e.g. 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ0OTg4MjUxMywtNzc1OTkwNzk3LC0zNz
+eyJoaXN0b3J5IjpbLTU0MzcwNjQ4NCwtNDQ5ODgyNTEzLC0zNz
 M3NDIwMiwtMTE2MTY2NzcyLDEwNjY5OTI2NzAsODcyMzkzNTg5
 LDEzNzUwODU3MSwxNDIwOTA1NjQwLC0xMDA1NTM1MzI0XX0=
 -->
