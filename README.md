@@ -20,7 +20,7 @@
 
 你必须安装以下依赖:
 
-### peerDependencies
+### dependencies
 - react
 - react-dom
 - styled-components（css-in-js 解决方案）
@@ -29,14 +29,12 @@
 - styled-icons (图标库, Material风格)
 - moment (用于时间操作)
 
-### dependencies
-- polished 
-- react-popper
-- react-spring
-- styled-tools (styled-components 工具库)
+## Api
+### 
+
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNjE2Njc3MiwxMDY2OTkyNjcwLDg3Mj
-M5MzU4OSwxMzc1MDg1NzEsMTQyMDkwNTY0MCwtMTAwNTUzNTMy
-NF19
+eyJoaXN0b3J5IjpbLTE0ODY1Mjk1MzksLTExNjE2Njc3MiwxMD
+Y2OTkyNjcwLDg3MjM5MzU4OSwxMzc1MDg1NzEsMTQyMDkwNTY0
+MCwtMTAwNTUzNTMyNF19
 -->
