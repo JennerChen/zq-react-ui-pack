@@ -11,7 +11,7 @@
 
 内部使用了 mobx以及 mobx-react, 来提升开发效率, 所以很适合已经大面积使用 mobx, mobx-react 的项目。
 
-另外由于是高度封装的库了, 所以依赖很重。(绝大部分涉及UI框架的库, 依赖都会很重),依赖详见 [Prerequisties](#Prerequisites)
+另外由于是高度封装的库了, 所以依赖很重。(绝大部分涉及UI框架的库, 依赖都会很重),依赖详见 [Prerequisties](#prerequisites)
 
 ## Prerequisites
 
@@ -33,5 +33,5 @@
 - styled-tools (styled-components 工具库)
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU2NzA3MTM2OCwtMTAwNTUzNTMyNF19
+eyJoaXN0b3J5IjpbMTQyMDkwNTY0MCwtMTAwNTUzNTMyNF19
 -->
