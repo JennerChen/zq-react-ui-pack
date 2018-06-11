@@ -2,7 +2,7 @@
 [![NPM version](https://img.shields.io/npm/v/zq-react-ui-pack.svg?style=flat-square)](https://www.npmjs.com/package/zq-react-ui-pack)
 [![NPM downloads](https://img.shields.io/npm/dw/zq-react-ui-pack.svg.svg?style=flat-square)](https://www.npmjs.com/package/zq-react-ui-pack)
 [![NPM downloads](https://img.shields.io/npm/l/zq-react-ui-pack.svg.svg?style=flat-square)](https://www.npmjs.com/package/zq-react-ui-pack)
-[![Github Tag](https://img.shields.io/github/tag/zq-react-ui-pack/express.svg)]()
+[![Github Tag](https://img.shields.io/github/tag/zq-react-ui-pack/zq-react-ui-pack.svg)](https://www.npmjs.com/package/zq-react-ui-pack)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 给自己项目定制的UI Kit, 主要目的为了统一各个模块的样式和写法。
 
@@ -34,6 +34,6 @@
 - styled-tools (styled-components 工具库)
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjMwMjQxOTQwLDEzNzUwODU3MSwxNDIwOT
-A1NjQwLC0xMDA1NTM1MzI0XX0=
+eyJoaXN0b3J5IjpbLTE1NTIyOTIxMywxMzc1MDg1NzEsMTQyMD
+kwNTY0MCwtMTAwNTUzNTMyNF19
 -->
