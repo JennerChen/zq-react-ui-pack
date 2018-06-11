@@ -1,10 +1,10 @@
 # zq-react-ui-pack
 
-A collection useful react libraries when develop react based application
+给自己项目定制的UI Kit, 主要目的为了统一各个模块的样式和写法。
 
-## basic
+## Getting Start
 
-[GitHub Flavored Markdown Spec](https://github.github.com/gfm/): github markdown 规范
+项目基于 React , [Material Design]() 风格开发。故如果想使用的话，需要接受 MD 风格。
 
 [Markdown 语法](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf): markdown
 
@@ -30,5 +30,5 @@ A collection useful react libraries when develop react based application
 
 [relaxed](https://github.com/RelaxedJS/ReLaXed): pdf generator, 使用 markdown, html 来生成 pdf 文件
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzODM2ODE2MDNdfQ==
+eyJoaXN0b3J5IjpbLTE2NjU3NTU1MzBdfQ==
 -->
