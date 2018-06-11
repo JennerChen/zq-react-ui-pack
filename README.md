@@ -51,12 +51,18 @@ tagName| string | `button`| 按钮html标签 `[button,a]` e.g. 例如使用 `a`�
 #### Button.Icon
 ```javascript
 import { Button } from "zq-react-ui-pack";
-<Button.Icon>按钮</Button.Icon>
+import { VerticalAlignTop } from "styled-icons/material";
+<Button.Icon  
+  type={"primary"}  
+  size={24}  
+  icon={VerticalAlignTop}  
+/>
 ```
+prop| type
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEyOTA5MjQ3MiwxMDUyODI0ODAwLC0xMz
-U1NjE2MzE5LC0xNzIxNTIzMDcsLTM4OTc2ODY4MywtNTQzNzA2
-NDg0LC0zNzM3NDIwMiwtMTE2MTY2NzcyLDEwNjY5OTI2NzAsOD
-cyMzkzNTg5LDEzNzUwODU3MSwxNDIwOTA1NjQwLC0xMDA1NTM1
-MzI0XX0=
+eyJoaXN0b3J5IjpbMTg4NTA0MDQ2NiwxMTI5MDkyNDcyLDEwNT
+I4MjQ4MDAsLTEzNTU2MTYzMTksLTE3MjE1MjMwNywtMzg5NzY4
+NjgzLC01NDM3MDY0ODQsLTM3Mzc0MjAyLC0xMTYxNjY3NzIsMT
+A2Njk5MjY3MCw4NzIzOTM1ODksMTM3NTA4NTcxLDE0MjA5MDU2
+NDAsLTEwMDU1MzUzMjRdfQ==
 -->
