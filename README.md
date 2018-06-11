@@ -31,10 +31,15 @@
 
 ## Api
 ### Button
+Item | Value
+-------- | -----
+Computer | $1600
+Phone | $12
+Pipe | $1
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMDg1NzE0NzcsLTE0ODY1Mjk1MzksLT
-ExNjE2Njc3MiwxMDY2OTkyNjcwLDg3MjM5MzU4OSwxMzc1MDg1
-NzEsMTQyMDkwNTY0MCwtMTAwNTUzNTMyNF19
+eyJoaXN0b3J5IjpbOTYxODI1MDQ4LC0xMDA4NTcxNDc3LC0xMT
+YxNjY3NzIsMTA2Njk5MjY3MCw4NzIzOTM1ODksMTM3NTA4NTcx
+LDE0MjA5MDU2NDAsLTEwMDU1MzUzMjRdfQ==
 -->
