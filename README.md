@@ -5,6 +5,8 @@
 [![Github Tag](https://img.shields.io/github/tag/zq-react-ui-pack/zq-react-ui-pack.svg)](https://www.npmjs.com/package/zq-react-ui-pack)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
+[![GitHub stars](https://img.shields.io/github/stars/badges/shields.svg?style=social&label=Stars)](https://github.com/JennerChen/zq-react-ui-pack/tree/develop)
+
 给自己项目定制的UI Kit, 主要目的为了统一各个模块的样式和写法。
 
 ## Getting Start
@@ -35,6 +37,6 @@
 - styled-tools (styled-components 工具库)
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODcyMzkzNTg5LDEzNzUwODU3MSwxNDIwOT
-A1NjQwLC0xMDA1NTM1MzI0XX0=
+eyJoaXN0b3J5IjpbLTY2OTA4NDUzNCw4NzIzOTM1ODksMTM3NT
+A4NTcxLDE0MjA5MDU2NDAsLTEwMDU1MzUzMjRdfQ==
 -->
