@@ -38,12 +38,13 @@ import { Button } from "zq-react-ui-pack";
 ```
 prop| type | default| desc
 --------------| ------------------ |------------------|----|
-type | string| `default`| 按钮样式, `[primary`,default,revert]`
+type | string| `default`| 按钮样式, `[primary,default,revert]`
 shape| string| `default`| 按钮形状 [`default`]
 tagName| string | `button`| 按钮html标签 [`button`,`a`] e.g. 例如使用 `a`标签， 那么 最后渲染在页面的按钮会是 `<a>按钮</a>` 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMDgzODYwOSwtNTQzNzA2NDg0LC0zNz
-M3NDIwMiwtMTE2MTY2NzcyLDEwNjY5OTI2NzAsODcyMzkzNTg5
-LDEzNzUwODU3MSwxNDIwOTA1NjQwLC0xMDA1NTM1MzI0XX0=
+eyJoaXN0b3J5IjpbLTM4OTc2ODY4MywtMTIwODM4NjA5LC01ND
+M3MDY0ODQsLTM3Mzc0MjAyLC0xMTYxNjY3NzIsMTA2Njk5MjY3
+MCw4NzIzOTM1ODksMTM3NTA4NTcxLDE0MjA5MDU2NDAsLTEwMD
+U1MzUzMjRdfQ==
 -->
