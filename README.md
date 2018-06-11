@@ -1,8 +1,8 @@
 # zq-react-ui-pack
 [![NPM version](https://img.shields.io/npm/v/zq-react-ui-pack.svg?style=flat-square)](https://www.npmjs.com/package/zq-react-ui-pack)
 [![NPM downloads](https://img.shields.io/npm/dw/zq-react-ui-pack.svg.svg?style=flat-square)](https://www.npmjs.com/package/zq-react-ui-pack)
-
 [![NPM downloads](https://img.shields.io/npm/l/zq-react-ui-pack.svg.svg?style=flat-square)](https://www.npmjs.com/package/zq-react-ui-pack)
+
 给自己项目定制的UI Kit, 主要目的为了统一各个模块的样式和写法。
 
 ## Getting Start
@@ -33,5 +33,5 @@
 - styled-tools (styled-components 工具库)
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMDU1MzUzMjRdfQ==
+eyJoaXN0b3J5IjpbMTU2NzA3MTM2OCwtMTAwNTUzNTMyNF19
 -->
