@@ -36,15 +36,15 @@
     
     <Button>按钮</Button>
 ```
-Item | Value
--------- | -----
-Computer | $1600
-Phone | $12
-Pipe | $1
+prop             | type                   | default
+-------- ------| ------------------ |
+Computer | $1600 |
+Phone | $12 |
+Pipe | $1 |
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTM2ODE3NjQ0LC0zNzM3NDIwMiwtMTE2MT
-Y2NzcyLDEwNjY5OTI2NzAsODcyMzkzNTg5LDEzNzUwODU3MSwx
-NDIwOTA1NjQwLC0xMDA1NTM1MzI0XX0=
+eyJoaXN0b3J5IjpbLTExNzU0MzAyNTEsLTM3Mzc0MjAyLC0xMT
+YxNjY3NzIsMTA2Njk5MjY3MCw4NzIzOTM1ODksMTM3NTA4NTcx
+LDE0MjA5MDU2NDAsLTEwMDU1MzUzMjRdfQ==
 -->
