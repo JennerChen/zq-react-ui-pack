@@ -36,14 +36,14 @@
     
     <Button>按钮</Button>
 ```
-prop| type | default| name
+prop| type | default| desc
 --------------| ------------------ |------------------|----|
 type | string| "default"
 shape| string| "default"
 tagName| string | "button"
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5Njc2MjA2NzksLTg0OTI4ODA1MiwtMz
+eyJoaXN0b3J5IjpbLTc3NTk5MDc5NywtMTk2NzYyMDY3OSwtMz
 czNzQyMDIsLTExNjE2Njc3MiwxMDY2OTkyNjcwLDg3MjM5MzU4
 OSwxMzc1MDg1NzEsMTQyMDkwNTY0MCwtMTAwNTUzNTMyNF19
 -->
