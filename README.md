@@ -20,10 +20,10 @@
 - styled-components
 - mobx
 - mobx-react
-- styled-icons
-- styled-tools
-- moment
+- styled-icons (图标库, )
+- styled-tools (styled-components 工具库)
+- moment (用于操作时间)
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI5NDg4MzEzMiwtMTY2NTc1NTUzMF19
+eyJoaXN0b3J5IjpbNjkzODk3MTY5LC0xNjY1NzU1NTMwXX0=
 -->
