@@ -102,7 +102,7 @@ export default class extends Component {
                     show: !this.state.show
                   })
                 }>
-                <Item>😁哈哈哈</Item>
+                <Item>哈哈哈</Item>
               </SelectContainer>
             )}
           </Reference>

@@ -21,7 +21,8 @@ export default {
     "react-spring",
     "prop-types",
     "styled-tools",
-    "polished"
+    "polished",
+    "react-popper"
   ],
   plugins: [
     clear({
