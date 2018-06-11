@@ -1,10 +1,21 @@
 {
+  "name": "zq-react-ui-pack",
+  "version": "0.0.6-alpha.6743",
+  "description": "zq ui tools for build web application",
+  "main": "build/zq-react-ui-pack.js",
+  "jsnext:main": "build/zq-react-ui-pack.js",
+  "repository": "https://github.com/JennerChen/zq-react-ui-pack.git",
+  "author": "zhangqing <zhangqing@suiyi.com.cn>",
+  "license": "MIT",
   "scripts": {
     "precommit": "lint-staged",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "clean:node_modules": "rimraf ./node_modules",
     "build": "rollup -c ./scripts/rollup.config.js",
     "prepublishOnly": "node ./scripts/publish"
+  },
+  "lint-staged": {
+    "src/**/*.{js,json,md}": ["prettier --write", "git add"]
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.4.6",
@@ -51,14 +62,7 @@
     "styled-components": "^3.3.0",
     "styled-icons": "^2.2.0"
   },
-  "name": "zq-react-ui-pack",
-  "version": "0.0.6-alpha.6743",
-  "description": "zq ui tools for build web application",
-  "main": "build/zq-react-ui-pack.js",
-  "jsnext:main": "build/zq-react-ui-pack.js",
-  "repository": "https://github.com/JennerChen/zq-react-ui-pack.git",
-  "author": "zhangqing <zhangqing@suiyi.com.cn>",
-  "license": "MIT",
+
   "peerDependencies": {
     "mobx": "^4.0.0",
     "mobx-react": "^5.0.0",
@@ -66,14 +70,7 @@
     "react": "^15.0.0 || ^16.0.0",
     "react-dom": "^15.0.0 || ^16.0.0",
     "styled-components": "^2.0.0 || ^3.0.0",
-    "styled-icons": "^2.2.0",
-    "styled-tools": "^0.5.0"
-  },
-  "lint-staged": {
-    "src/**/*.{js,json,md}": [
-      "prettier --write",
-      "git add"
-    ]
+    "styled-icons": "^2.2.0"
   },
   "dependencies": {
     "polished": "^1.9.2",
