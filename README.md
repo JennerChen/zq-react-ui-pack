@@ -21,7 +21,6 @@
 - mobx (状态管理)
 - mobx-react
 - styled-icons (图标库, Material风格)
-- 
 - moment (用于时间操作)
 
 ### dependencies
@@ -31,6 +30,6 @@
 - styled-tools (styled-components 工具库)
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk4NTMxODAzMyw2OTM4OTcxNjksLTE2Nj
+eyJoaXN0b3J5IjpbLTkyMDM0Nzk0Niw2OTM4OTcxNjksLTE2Nj
 U3NTU1MzBdfQ==
 -->
