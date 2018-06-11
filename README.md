@@ -62,12 +62,12 @@ prop|  type| default| desc
 -----| -----|---------|--------|
 type| string| `default`| 按钮样式, `[primary,default,revert]`
 size| int | `24` | 按钮大小, 因为这是使用svg渲染的图标, style的font-size对其无用,故使用 size表明其大小
-icon| styled-icon | null 
+icon| styled-icons | null | styled-icons 图标 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc5MTg0NjU2NCwtODc3MjAzMDczLC0yMD
-U0NTE5MTIsMTEyOTA5MjQ3MiwxMDUyODI0ODAwLC0xMzU1NjE2
-MzE5LC0xNzIxNTIzMDcsLTM4OTc2ODY4MywtNTQzNzA2NDg0LC
-0zNzM3NDIwMiwtMTE2MTY2NzcyLDEwNjY5OTI2NzAsODcyMzkz
-NTg5LDEzNzUwODU3MSwxNDIwOTA1NjQwLC0xMDA1NTM1MzI0XX
-0=
+eyJoaXN0b3J5IjpbLTEwNzI4MTIwNjQsLTc5MTg0NjU2NCwtMj
+A1NDUxOTEyLDExMjkwOTI0NzIsMTA1MjgyNDgwMCwtMTM1NTYx
+NjMxOSwtMTcyMTUyMzA3LC0zODk3Njg2ODMsLTU0MzcwNjQ4NC
+wtMzczNzQyMDIsLTExNjE2Njc3MiwxMDY2OTkyNjcwLDg3MjM5
+MzU4OSwxMzc1MDg1NzEsMTQyMDkwNTY0MCwtMTAwNTUzNTMyNF
+19
 -->
