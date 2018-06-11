@@ -37,14 +37,14 @@
     <Button>按钮</Button>
 ```
 prop             | type                   | default
--------- ------| ------------------ |
+-------- ------| ------------------ |-
 Computer | $1600 |
 Phone | $12 |
 Pipe | $1 |
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNzU0MzAyNTEsLTM3Mzc0MjAyLC0xMT
-YxNjY3NzIsMTA2Njk5MjY3MCw4NzIzOTM1ODksMTM3NTA4NTcx
-LDE0MjA5MDU2NDAsLTEwMDU1MzUzMjRdfQ==
+eyJoaXN0b3J5IjpbMTk4MjA3MjI2MiwtMTE3NTQzMDI1MSwtMz
+czNzQyMDIsLTExNjE2Njc3MiwxMDY2OTkyNjcwLDg3MjM5MzU4
+OSwxMzc1MDg1NzEsMTQyMDkwNTY0MCwtMTAwNTUzNTMyNF19
 -->
