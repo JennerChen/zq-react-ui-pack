@@ -21,10 +21,16 @@
 - mobx (状态管理)
 - mobx-react
 - styled-icons (图标库, Material风格)
-- styled-tools (styled-components 工具库)
+- 
 - moment (用于时间操作)
 
+### dependencies
+- polished 
+- react-popper
+- react-spring
+- styled-tools (styled-components 工具库)
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzQyMjk1MDAyLDY5Mzg5NzE2OSwtMTY2NT
-c1NTUzMF19
+eyJoaXN0b3J5IjpbMTk4NTMxODAzMyw2OTM4OTcxNjksLTE2Nj
+U3NTU1MzBdfQ==
 -->
