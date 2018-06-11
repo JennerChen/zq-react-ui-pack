@@ -61,9 +61,10 @@ import { VerticalAlignTop } from "styled-icons/material";
 prop|  type| default| desc
 -----| -----|---------|--------|
 type| string| `default`| 按钮样式, `[primary,default,revert]`
-size| int | `24` | 按钮大小, 因为这是使用svg渲染的t
+size| int | `24` | 按钮大小, 因为这是使用svg渲染的图标, style的font-size对其无用,故使用 size表明其大小
+icon| React 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNTQ1MTkxMiwtMTY2MDcwMDc4MSwxMT
+eyJoaXN0b3J5IjpbLTIwNzI2NDk3MTMsLTIwNTQ1MTkxMiwxMT
 I5MDkyNDcyLDEwNTI4MjQ4MDAsLTEzNTU2MTYzMTksLTE3MjE1
 MjMwNywtMzg5NzY4NjgzLC01NDM3MDY0ODQsLTM3Mzc0MjAyLC
 0xMTYxNjY3NzIsMTA2Njk5MjY3MCw4NzIzOTM1ODksMTM3NTA4
