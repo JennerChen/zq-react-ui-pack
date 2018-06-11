@@ -17,13 +17,14 @@
 ### peerDependencies
 - react
 - react-dom
-- styled-components
-- mobx
+- styled-components（css-in-js 解决方案）
+- mobx (状态管理)
 - mobx-react
-- styled-icons (图标库, )
+- styled-icons (图标库, Material风格)
 - styled-tools (styled-components 工具库)
-- moment (用于操作时间)
+- moment (用于时间操作)
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjkzODk3MTY5LC0xNjY1NzU1NTMwXX0=
+eyJoaXN0b3J5IjpbNzQyMjk1MDAyLDY5Mzg5NzE2OSwtMTY2NT
+c1NTUzMF19
 -->
