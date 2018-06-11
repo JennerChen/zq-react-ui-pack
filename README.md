@@ -34,7 +34,7 @@
 ```javascript
 import { Button } from "zq-react-ui-pack";
     
-<Button>按钮</Button>
+<Button type=>按钮</Button>
 ```
 prop| type | default| desc
 --------------| ------------------ |------------------|----|
@@ -43,7 +43,7 @@ shape| string| `default`| 按钮形状 `[default]`
 tagName| string | `button`| 按钮html标签 `[button,a]` e.g. 例如使用 `a`标签， 那么 最后渲染在页面的按钮会是 `<a>按钮</a>` 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU3NjM2Mjk0NSwtMTcyMTUyMzA3LC0zOD
+eyJoaXN0b3J5IjpbMTAzMzA5MTI2MiwtMTcyMTUyMzA3LC0zOD
 k3Njg2ODMsLTU0MzcwNjQ4NCwtMzczNzQyMDIsLTExNjE2Njc3
 MiwxMDY2OTkyNjcwLDg3MjM5MzU4OSwxMzc1MDg1NzEsMTQyMD
 kwNTY0MCwtMTAwNTUzNTMyNF19
