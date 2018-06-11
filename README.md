@@ -6,12 +6,17 @@
 
 项目基于 React , [Material Design](https://material.io/design/material-theming/) 风格开发。故如果想继续使用的话，需要接受 MD 风格。
 
+另外由于是重度yi'lai
+
 ## Prerequisites
 
 你必须安装以下依赖:
 
-- RE
+- React
+- styled-components
+- mobx
+- 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODM4MTE4MTg5LC0xNjY1NzU1NTMwXX0=
+eyJoaXN0b3J5IjpbMTI3NDE0NTcwMCwtMTY2NTc1NTUzMF19
 -->
