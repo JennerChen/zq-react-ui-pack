@@ -30,8 +30,9 @@
 - moment (用于时间操作)
 
 ## install
+推荐使用 yarn 安装:
 ```shell
-yarn add zq-react-ui-pa
+yarn add zq-react-ui-pack
 ```
 
 ## Api
@@ -48,8 +49,8 @@ shape| string| `default`| 按钮形状 `[default]`
 tagName| string | `button`| 按钮html标签 `[button,a]` e.g. 例如使用 `a`标签， 那么 最后渲染在页面的按钮会是 `<a>按钮</a>` 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNTU2MTYzMTksLTEwMjA4MTY0MjksLT
-E3MjE1MjMwNywtMzg5NzY4NjgzLC01NDM3MDY0ODQsLTM3Mzc0
-MjAyLC0xMTYxNjY3NzIsMTA2Njk5MjY3MCw4NzIzOTM1ODksMT
-M3NTA4NTcxLDE0MjA5MDU2NDAsLTEwMDU1MzUzMjRdfQ==
+eyJoaXN0b3J5IjpbMTA1MjgyNDgwMCwtMTM1NTYxNjMxOSwtMT
+cyMTUyMzA3LC0zODk3Njg2ODMsLTU0MzcwNjQ4NCwtMzczNzQy
+MDIsLTExNjE2Njc3MiwxMDY2OTkyNjcwLDg3MjM5MzU4OSwxMz
+c1MDg1NzEsMTQyMDkwNTY0MCwtMTAwNTUzNTMyNF19
 -->
