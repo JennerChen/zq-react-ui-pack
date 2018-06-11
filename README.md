@@ -61,11 +61,11 @@ import { VerticalAlignTop } from "styled-icons/material";
 prop|  type| default| desc
 -----| -----|---------|--------|
 type| string| `default`| 按钮样式, `[primary,default,revert]`
-size| int
+size| interger
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NDA0MDE0NjksLTIwODE5Mjk2NTgsMT
-EyOTA5MjQ3MiwxMDUyODI0ODAwLC0xMzU1NjE2MzE5LC0xNzIx
-NTIzMDcsLTM4OTc2ODY4MywtNTQzNzA2NDg0LC0zNzM3NDIwMi
-wtMTE2MTY2NzcyLDEwNjY5OTI2NzAsODcyMzkzNTg5LDEzNzUw
-ODU3MSwxNDIwOTA1NjQwLC0xMDA1NTM1MzI0XX0=
+eyJoaXN0b3J5IjpbODgzMDU2MjAyLC0xNDQwNDAxNDY5LDExMj
+kwOTI0NzIsMTA1MjgyNDgwMCwtMTM1NTYxNjMxOSwtMTcyMTUy
+MzA3LC0zODk3Njg2ODMsLTU0MzcwNjQ4NCwtMzczNzQyMDIsLT
+ExNjE2Njc3MiwxMDY2OTkyNjcwLDg3MjM5MzU4OSwxMzc1MDg1
+NzEsMTQyMDkwNTY0MCwtMTAwNTUzNTMyNF19
 -->
