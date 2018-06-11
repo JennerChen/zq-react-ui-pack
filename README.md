@@ -61,11 +61,11 @@ import { VerticalAlignTop } from "styled-icons/material";
 prop|  type| default| desc
 -----| -----|---------|--------|
 type| string| `default`| 按钮样式, `[primary,default,revert]`
-size| int | `24` | 按钮大小, 因为这是使用svgx
+size| int | `24` | 按钮大小, 因为这是使用svg渲染的t
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NjA3MDA3ODEsODgzMDU2MjAyLDExMj
-kwOTI0NzIsMTA1MjgyNDgwMCwtMTM1NTYxNjMxOSwtMTcyMTUy
-MzA3LC0zODk3Njg2ODMsLTU0MzcwNjQ4NCwtMzczNzQyMDIsLT
-ExNjE2Njc3MiwxMDY2OTkyNjcwLDg3MjM5MzU4OSwxMzc1MDg1
-NzEsMTQyMDkwNTY0MCwtMTAwNTUzNTMyNF19
+eyJoaXN0b3J5IjpbLTIwNTQ1MTkxMiwtMTY2MDcwMDc4MSwxMT
+I5MDkyNDcyLDEwNTI4MjQ4MDAsLTEzNTU2MTYzMTksLTE3MjE1
+MjMwNywtMzg5NzY4NjgzLC01NDM3MDY0ODQsLTM3Mzc0MjAyLC
+0xMTYxNjY3NzIsMTA2Njk5MjY3MCw4NzIzOTM1ODksMTM3NTA4
+NTcxLDE0MjA5MDU2NDAsLTEwMDU1MzUzMjRdfQ==
 -->
