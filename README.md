@@ -4,7 +4,7 @@
 
 ## Getting Start
 
-项目基于 React , [Material Design]() 风格开发。故如果想使用的话，需要接受 MD 风格。
+项目基于 React , [Material Design](https://material.io/design/material-theming/) 风格开发。故如果想继续使用的话，需要接受 MD 风格。
 
 [Markdown 语法](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf): markdown
 
@@ -30,5 +30,5 @@
 
 [relaxed](https://github.com/RelaxedJS/ReLaXed): pdf generator, 使用 markdown, html 来生成 pdf 文件
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NjU3NTU1MzBdfQ==
+eyJoaXN0b3J5IjpbMTA0MDQ3Nzg2OSwtMTY2NTc1NTUzMF19
 -->
