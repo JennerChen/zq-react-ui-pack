@@ -1,3 +1,4 @@
+
 (async function () {
   const shell = require("shelljs");
   const inquirer = require("inquirer");
@@ -7,6 +8,7 @@
       shell.exit(3, "用户终止了进程");
     }
   });
+
   const checkCommandExist = function (cmd) {
     if (!shell.which(cmd)){
       shell.echo(`Sorry, this script requires ${ cmd }`);

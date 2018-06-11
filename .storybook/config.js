@@ -10,6 +10,7 @@ addDecorator(ThemeProviderWrap);
 
 function loadStories() {
   require("../stories/basic/index");
+  require("../stories/others/index")
   // You can require as many stories as you need.
 }
 
