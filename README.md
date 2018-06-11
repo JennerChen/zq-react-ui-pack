@@ -8,18 +8,22 @@
 
 内部使用了 mobx以及 mobx-react, 来提升开发效率, 所以很适合已经大面积使用 mobx, mobx-react 的项目。
 
-另外由于是高度封装的库了, 所以依赖很重。(绝大部分涉及UI框架的库, 依赖都会很重),详见 [Prerequisties](#Prerequisites)
+另外由于是高度封装的库了, 所以依赖很重。(绝大部分涉及UI框架的库, 依赖都会很重),依赖详见 [Prerequisties](#Prerequisites)
 
 ## Prerequisites
 
 你必须安装以下依赖:
 
+### peerDependencies
 - react
 - react-dom
 - styled-components
 - mobx
 - mobx-react
+- styled-icons
+- styled-tools
+- moment
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDY1MDExNjE3LC0xNjY1NzU1NTMwXX0=
+eyJoaXN0b3J5IjpbLTI5NDg4MzEzMiwtMTY2NTc1NTUzMF19
 -->
