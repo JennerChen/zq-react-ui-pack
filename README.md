@@ -6,7 +6,7 @@
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![GitHub stars](https://img.shields.io/github/stars/JennerChen/zq-react-ui-pack.svg?style=social&label=Stars)](https://github.com/JennerChen/zq-react-ui-pack/tree/develop)
 
-![GitHub last commit (branch)](https://img.shields.io/github/last-commit/JennerChen/skia/infra/config.svg)
+![GitHub last commit (branch)](https://img.shields.io/github/last-commit/JennerChen/zq-react-ui-pack/infra/config.svg)
 
 给自己项目定制的UI Kit, 主要目的为了统一各个模块的样式和写法。
 
@@ -66,11 +66,11 @@ type| string| `default`| 按钮样式, `[primary,default,revert]`
 size| int | `24` | 按钮大小, 因为这是使用svg渲染的图标, style的font-size对其无用,故使用 size表明其大小
 icon| styled-icons | null | styled-icons 图标 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkzNjk5NDE2NiwxNTExNDAwOTM1LC01Nj
-Y4Mjc2NzIsLTg5MTczMTA4NiwtMTA3MjgxMjA2NCwtNzkxODQ2
-NTY0LC0yMDU0NTE5MTIsMTEyOTA5MjQ3MiwxMDUyODI0ODAwLC
-0xMzU1NjE2MzE5LC0xNzIxNTIzMDcsLTM4OTc2ODY4MywtNTQz
-NzA2NDg0LC0zNzM3NDIwMiwtMTE2MTY2NzcyLDEwNjY5OTI2Nz
-AsODcyMzkzNTg5LDEzNzUwODU3MSwxNDIwOTA1NjQwLC0xMDA1
-NTM1MzI0XX0=
+eyJoaXN0b3J5IjpbLTExMTE1MjI5NjgsMTUxMTQwMDkzNSwtNT
+Y2ODI3NjcyLC04OTE3MzEwODYsLTEwNzI4MTIwNjQsLTc5MTg0
+NjU2NCwtMjA1NDUxOTEyLDExMjkwOTI0NzIsMTA1MjgyNDgwMC
+wtMTM1NTYxNjMxOSwtMTcyMTUyMzA3LC0zODk3Njg2ODMsLTU0
+MzcwNjQ4NCwtMzczNzQyMDIsLTExNjE2Njc3MiwxMDY2OTkyNj
+cwLDg3MjM5MzU4OSwxMzc1MDg1NzEsMTQyMDkwNTY0MCwtMTAw
+NTUzNTMyNF19
 -->
