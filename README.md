@@ -31,7 +31,11 @@
 
 ## Api
 ### Button
-
+```
+	import { Button } from "zq-react-ui-pack";
+    
+    <Button>按钮</Button>
+```
 Item | Value
 -------- | -----
 Computer | $1600
@@ -40,7 +44,7 @@ Pipe | $1
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM3Mzc0MjAyLDk2MTgyNTA0OCwtMTE2MT
+eyJoaXN0b3J5IjpbOTM2ODE3NjQ0LC0zNzM3NDIwMiwtMTE2MT
 Y2NzcyLDEwNjY5OTI2NzAsODcyMzkzNTg5LDEzNzUwODU3MSwx
 NDIwOTA1NjQwLC0xMDA1NTM1MzI0XX0=
 -->
