@@ -40,10 +40,10 @@ prop| type | default| desc
 --------------| ------------------ |------------------|----|
 type | string| "default"| 按钮样式, ["primary","default","revert]
 shape| string| "default"| 按钮形状 ["default"]
-tagName| string | "button"| 按钮html标签 e.g. 
+tagName| string | "button"| 按钮html标签 ["button","a"] e.g. 例如使用 `a`标签， 那么 最后渲染在页面的按钮会是 `<a>按钮</a>` 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU0MzcwNjQ4NCwtNDQ5ODgyNTEzLC0zNz
-M3NDIwMiwtMTE2MTY2NzcyLDEwNjY5OTI2NzAsODcyMzkzNTg5
-LDEzNzUwODU3MSwxNDIwOTA1NjQwLC0xMDA1NTM1MzI0XX0=
+eyJoaXN0b3J5IjpbMzQ0NzkwNzM2LC01NDM3MDY0ODQsLTM3Mz
+c0MjAyLC0xMTYxNjY3NzIsMTA2Njk5MjY3MCw4NzIzOTM1ODks
+MTM3NTA4NTcxLDE0MjA5MDU2NDAsLTEwMDU1MzUzMjRdfQ==
 -->
