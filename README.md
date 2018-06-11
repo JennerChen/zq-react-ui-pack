@@ -2,7 +2,7 @@
 [![NPM version](https://img.shields.io/npm/v/zq-react-ui-pack.svg?style=flat-square)](https://www.npmjs.com/package/zq-react-ui-pack)
 [![NPM downloads](https://img.shields.io/npm/dw/zq-react-ui-pack.svg.svg?style=flat-square)](https://www.npmjs.com/package/zq-react-ui-pack)
 [![NPM downloads](https://img.shields.io/npm/l/zq-react-ui-pack.svg.svg?style=flat-square)](https://www.npmjs.com/package/zq-react-ui-pack)
-
+[![Github Tag](https://img.shields.io/github/tag/zq-react-ui-pack/express.svg)]()
 给自己项目定制的UI Kit, 主要目的为了统一各个模块的样式和写法。
 
 ## Getting Start
@@ -33,5 +33,6 @@
 - styled-tools (styled-components 工具库)
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQyMDkwNTY0MCwtMTAwNTUzNTMyNF19
+eyJoaXN0b3J5IjpbMTM3NTA4NTcxLDE0MjA5MDU2NDAsLTEwMD
+U1MzUzMjRdfQ==
 -->
