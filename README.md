@@ -6,7 +6,7 @@
 
 项目基于 React , [Material Design](https://material.io/design/material-theming/) 风格开发。故如果想继续使用的话，需要接受 MD 风格。
 
-另外由于是高度封装的库了, 所以依赖很重重度依赖
+另外由于是高度封装的库了, 所以依赖很重。(绝大部分涉及UI框架的库, 依赖都会很重),详见 [Prerequistie]
 
 ## Prerequisites
 
@@ -19,6 +19,5 @@
 - mobx-react
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMzY1NzI1ODMsLTE2NjU3NTU1MzBdfQ
-==
+eyJoaXN0b3J5IjpbLTUwODk1OTQ0NCwtMTY2NTc1NTUzMF19
 -->
