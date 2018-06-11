@@ -9,6 +9,9 @@
 ## Prerequisites
 
 你必须安装以下依赖:
+
+- RE
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ2ODUyODg1NSwtMTY2NTc1NTUzMF19
+eyJoaXN0b3J5IjpbODM4MTE4MTg5LC0xNjY1NzU1NTMwXX0=
 -->
