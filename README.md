@@ -38,12 +38,12 @@
 ```
 prop| type | default| desc
 --------------| ------------------ |------------------|----|
-type | string| "default"
-shape| string| "default"
-tagName| string | "button"
+type | string| "default"| 按钮样式, ["primary","default","revert]
+shape| string| "default"| 按钮形状 ["default"]
+tagName| string | "button"| 按钮html标签 e.g. ru'guo
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc3NTk5MDc5NywtMTk2NzYyMDY3OSwtMz
-czNzQyMDIsLTExNjE2Njc3MiwxMDY2OTkyNjcwLDg3MjM5MzU4
-OSwxMzc1MDg1NzEsMTQyMDkwNTY0MCwtMTAwNTUzNTMyNF19
+eyJoaXN0b3J5IjpbLTQ0OTg4MjUxMywtNzc1OTkwNzk3LC0zNz
+M3NDIwMiwtMTE2MTY2NzcyLDEwNjY5OTI2NzAsODcyMzkzNTg5
+LDEzNzUwODU3MSwxNDIwOTA1NjQwLC0xMDA1NTM1MzI0XX0=
 -->
