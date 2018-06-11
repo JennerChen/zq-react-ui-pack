@@ -2,9 +2,9 @@
 [![NPM version](https://img.shields.io/npm/v/zq-react-ui-pack.svg?style=flat-square)](https://www.npmjs.com/package/zq-react-ui-pack)
 [![NPM downloads](https://img.shields.io/npm/dw/zq-react-ui-pack.svg.svg?style=flat-square)](https://www.npmjs.com/package/zq-react-ui-pack)
 [![NPM downloads](https://img.shields.io/npm/l/zq-react-ui-pack.svg.svg?style=flat-square)](https://www.npmjs.com/package/zq-react-ui-pack)
-[![Github Tag](https://img.shields.io/github/tag/zq-react-ui-pack/zq-react-ui-pack.svg)](https://www.npmjs.com/package/zq-react-ui-pack)
+[![Github Tag](https://img.shields.io/github/tag/JennerChen/zq-react-ui-pack.svg)](https://www.npmjs.com/package/zq-react-ui-pack)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
-[![GitHub stars](https://img.shields.io/github/stars/badges/zq-react-ui-pack.svg?style=social&label=Stars)](https://github.com/JennerChen/zq-react-ui-pack/tree/develop)
+[![GitHub stars](https://img.shields.io/github/stars/JennerChen/zq-react-ui-pack.svg?style=social&label=Stars)](https://github.com/JennerChen/zq-react-ui-pack/tree/develop)
 
 给自己项目定制的UI Kit, 主要目的为了统一各个模块的样式和写法。
 
@@ -64,10 +64,10 @@ type| string| `default`| 按钮样式, `[primary,default,revert]`
 size| int | `24` | 按钮大小, 因为这是使用svg渲染的图标, style的font-size对其无用,故使用 size表明其大小
 icon| styled-icons | null | styled-icons 图标 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNzI4MTIwNjQsLTc5MTg0NjU2NCwtMj
-A1NDUxOTEyLDExMjkwOTI0NzIsMTA1MjgyNDgwMCwtMTM1NTYx
-NjMxOSwtMTcyMTUyMzA3LC0zODk3Njg2ODMsLTU0MzcwNjQ4NC
-wtMzczNzQyMDIsLTExNjE2Njc3MiwxMDY2OTkyNjcwLDg3MjM5
-MzU4OSwxMzc1MDg1NzEsMTQyMDkwNTY0MCwtMTAwNTUzNTMyNF
-19
+eyJoaXN0b3J5IjpbMTA5MzU0OTg3NCwtMTA3MjgxMjA2NCwtNz
+kxODQ2NTY0LC0yMDU0NTE5MTIsMTEyOTA5MjQ3MiwxMDUyODI0
+ODAwLC0xMzU1NjE2MzE5LC0xNzIxNTIzMDcsLTM4OTc2ODY4My
+wtNTQzNzA2NDg0LC0zNzM3NDIwMiwtMTE2MTY2NzcyLDEwNjY5
+OTI2NzAsODcyMzkzNTg5LDEzNzUwODU3MSwxNDIwOTA1NjQwLC
+0xMDA1NTM1MzI0XX0=
 -->
