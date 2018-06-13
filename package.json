@@ -15,10 +15,7 @@
     "prepublishOnly": "node ./scripts/publish"
   },
   "lint-staged": {
-    "src/**/*.{js,json,md}": [
-      "prettier --write",
-      "git add"
-    ]
+    "src/**/*.{js,json,md}": ["prettier --write", "git add"]
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.4.6",
@@ -48,7 +45,6 @@
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-emotion": "^9.2.3",
-    "react-tippy": "^1.0.0",
     "recompose": "^0.27.1",
     "rimraf": "^2.6.2",
     "rollup": "^0.59.4",
@@ -77,9 +73,7 @@
   "dependencies": {
     "polished": "^1.9.2",
     "popper.js": "^1.14.3",
-    "react-popper": "^1.0.0-beta.6",
     "react-spring": "^5.3.8",
-    "react-tippy": "^1.0.0",
     "styled-tools": "^0.5.0"
   }
 }

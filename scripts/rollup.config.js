@@ -22,7 +22,7 @@ export default {
     "prop-types",
     "styled-tools",
     "polished",
-    "react-popper"
+    "popper.js"
   ],
   plugins: [
     clear({

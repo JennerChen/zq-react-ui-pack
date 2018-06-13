@@ -30,6 +30,26 @@ export default styled.div`
         border-width: ${getSizeProp(18, 3)}px ${getSizeProp(18, 2)}px 0 ${getSizeProp(18, 2)}px;
         border-color: ${prop("bg", "#fff")} transparent transparent transparent;
       }
+    `,
+    left: css`
+      right: 0;
+      margin-right: -${getSizeProp(18, 3)}px;
+      width: ${getSizeProp(18, 3)}px;
+      height: ${getSizeProp(18)}px;
+      &::before {
+        border-width: ${getSizeProp(18, 2)}px 0 ${getSizeProp(18, 2)}px ${getSizeProp(18, 3)}px;
+        border-color: transparent transparent transparent ${prop("bg", "#fff")};
+      }
+    `,
+    right: css`
+      left: 0;
+      margin-left: -${getSizeProp(18, 3)}px;
+      width: ${getSizeProp(18, 3)}px;
+      height: ${getSizeProp(18)}px;
+      &::before {
+        border-width: ${getSizeProp(18, 2)}px ${getSizeProp(18, 3)}px ${getSizeProp(18, 2)}px 0;
+        border-color: transparent ${prop("bg", "#fff")} transparent transparent;
+      }
     `
   })};
 

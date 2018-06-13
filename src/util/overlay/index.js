@@ -1,6 +1,5 @@
-import React, { Component, Fragment, Children } from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import ReactDom from "react-dom";
 import { Provider } from "mobx-react";
 import OverlayStore from "./OverlayStore";
 import Manage from "./Manage";
@@ -16,7 +15,21 @@ export class Overlay extends Component {
     arrowSize: PropTypes.number,
     arrowColor: PropTypes.string,
     autoClose: PropTypes.bool,
-    hoverDelay: PropTypes.number
+    hoverDelay: PropTypes.number,
+    animation: PropTypes.bool,
+    zIndex: function(props, propName, componentName) {
+      if (props[propName] !== "auto" && !Number.isInteger(props[propName])) {
+        return new Error(
+          "Invalid prop `" +
+            propName +
+            "` supplied to" +
+            " `" +
+            componentName +
+            "`. Validation failed. expect `auto` or a valid integer"
+        );
+      }
+    },
+    flip: PropTypes.bool
   };
 
   static defaultProps = {
@@ -27,7 +40,10 @@ export class Overlay extends Component {
     arrowSize: 18,
     arrowColor: "#fff",
     autoClose: false,
-    hoverDelay: 200
+    hoverDelay: 200,
+    animation: false,
+    zIndex: "auto",
+    flip: true
   };
 
   constructor(props) {

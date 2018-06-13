@@ -1,9 +1,11 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { inject, observer } from "mobx-react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import { portal } from "../decorators";
 import Arrow from "./Arrow";
+import Popper from "popper.js";
+
 const Container = styled.div`
   position: absolute;
   z-index: 100;
@@ -27,54 +29,100 @@ export default class extends Component {
     scale: 1
   };
 
+  state = {
+    popperProps: null
+  };
+
   componentDidMount() {
-    this.props.overlay.initPopper();
+    const {
+      overlay: { node, placement, allowArrow, flip }
+    } = this.props;
+
+    this.popper = new Popper(node, this.container, {
+      placement: placement,
+      eventsEnabled: true,
+      positionFixed: false,
+      modifiers: {
+        flip: { enabled: flip },
+        computeStyle: { gpuAcceleration: false },
+        arrow: {
+          enabled: allowArrow,
+          element: this.arrow
+        },
+        applyStyle: { enabled: false },
+        updateStateModifier: {
+          enabled: true,
+          order: 900,
+          fn: data => {
+            this.setState({
+              popperProps: data
+            });
+            return data;
+          }
+        }
+      }
+    });
+
+    document.addEventListener("click", this.autoCloseOverlay);
   }
 
   componentWillUnmount() {
-    this.props.overlay.destroyPopper();
+    if (this.popper) {
+      this.popper.destroy();
+    }
+
+    document.removeEventListener("click", this.autoCloseOverlay);
   }
 
   getContainerStyle() {
     const {
-      overlay: { popperProps, offset },
+      overlay: { offset, zIndex },
       opacity,
       scale
     } = this.props;
+    const { popperProps } = this.state;
     if (!popperProps) return {};
     let transformOrigin = "",
+      scaleOrient = "",
       offsetX = 0,
       offsetY = 0;
     switch (popperProps.placement) {
-      case "bottom":
-        transformOrigin = "top center";
-        offsetY = offset;
-        break;
       case "top":
         transformOrigin = "bottom center";
         offsetY = -offset;
+        scaleOrient = "scaleY";
         break;
       case "left":
         transformOrigin = "right center";
         offsetX = -offset;
+        scaleOrient = "scaleX";
         break;
       case "right":
         transformOrigin = "left center";
         offsetX = offset;
+        scaleOrient = "scaleX";
+        break;
+      case "bottom":
+      default:
+        transformOrigin = "top center";
+        offsetY = offset;
+        scaleOrient = "scaleY";
     }
 
     return {
+      zIndex,
       opacity,
       transform: `translate(${popperProps.styles.left + offsetX}px,${popperProps.styles.top +
-        offsetY}px) scaleY(${scale})`,
+        offsetY}px) ${scaleOrient}(${scale})`,
       transformOrigin: transformOrigin
     };
   }
 
   getArrowProps() {
     const {
-      overlay: { popperProps, arrowStyleProps }
+      overlay: { arrowStyleProps }
     } = this.props;
+    const { popperProps } = this.state;
     if (!popperProps) return arrowStyleProps;
     let { left, top } = popperProps.arrowStyles;
     return {
@@ -88,13 +136,31 @@ export default class extends Component {
     };
   }
 
+  autoCloseOverlay = e => {
+    const {
+      popper,
+      props: {
+        overlay: { autoClose, show, node, closeOverlay }
+      }
+    } = this;
+    if (!autoClose) return;
+    if (!show) return;
+    if (!popper) return;
+    if (node.contains(e.target) || this.container.contains(e.target)) return;
+    closeOverlay();
+  };
+
   render() {
     const {
-      overlay: { overlayContent, bindPopper, allowArrow, bindArrow }
+      overlay: { overlayContent, allowArrow }
     } = this.props;
     return (
-      <Container innerRef={bindPopper} style={this.getContainerStyle()}>
-        {allowArrow ? <Arrow innerRef={bindArrow} {...this.getArrowProps()} /> : null}
+      <Container
+        innerRef={container => (this.container = container)}
+        style={this.getContainerStyle()}>
+        {allowArrow ? (
+          <Arrow innerRef={arrow => (this.arrow = arrow)} {...this.getArrowProps()} />
+        ) : null}
         {overlayContent}
       </Container>
     );

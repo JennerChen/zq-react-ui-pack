@@ -27,6 +27,8 @@ const Ripple = styled.span`
   opacity: 0.75;
   background-color: ${props => (props.color ? props.color : "#fff")};
   animation: ${RippleEffect} 0.8s;
+  pointer-events: none;
+  user-select: none;
 `;
 
 function getDecorator(withArgs, allowRipple) {

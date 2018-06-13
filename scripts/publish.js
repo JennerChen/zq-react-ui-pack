@@ -5,7 +5,7 @@
   let stdin = process.stdin;
   stdin.on("data", (key) => {
     if (key === "\u0003") {
-      shell.exit(3, "用户终止了进程");
+      shell.exit(1, "用户终止了进程");
     }
   });
 
@@ -63,17 +63,22 @@
   }]);
 
   if (!version)  {
-    shell.exit(2)
+    shell.exit(1)
   }
 
-  const npmPkgInfo = JSON.parse(
-    shell.exec(`yarn info ${ pkg.name } --json`, {
-    silent: true
-  }).stdout).data;
-
+  let npmPkgInfo =  null;
+  try{
+    npmPkgInfo = JSON.parse(
+      shell.exec(`yarn info ${ pkg.name } --json`, {
+        silent: true
+      }).stdout);
+  }catch (e) {
+    shell.echo(`无法获取远端包信息`);
+    shell.exit(1);
+  }
   if (npmPkgInfo.versions.includes(version)){
     shell.echo(`版本 ${ version }, 已经存在`);
-    shell.exit(2)
+    shell.exit(1)
   }
 
   pkg.version = version;

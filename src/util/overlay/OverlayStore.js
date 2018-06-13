@@ -1,12 +1,11 @@
 import { observable, action, computed } from "mobx";
 import { findDOMNode } from "react-dom";
-import Popper from "popper.js";
 
 export default class OverlayStore {
   overlay = null;
 
   @observable show = false;
-  @observable popperProps = null;
+
   constructor(overlay) {
     this.overlay = overlay;
   }
@@ -45,31 +44,6 @@ export default class OverlayStore {
   }
 
   @computed
-  get popperOptions() {
-    return {
-      placement: this.placement,
-      eventsEnabled: true,
-      positionFixed: false,
-      modifiers: {
-        computeStyle: { gpuAcceleration: false },
-        arrow: {
-          enabled: this.allowArrow,
-          element: this.arrowElement
-        },
-        applyStyle: { enabled: false },
-        updateStateModifier: {
-          enabled: true,
-          order: 900,
-          fn: action("update-popperProps", data => {
-            this.popperProps = data;
-            return data;
-          })
-        }
-      }
-    };
-  }
-
-  @computed
   get hoverDelay() {
     return this.overlay.props.hoverDelay ? this.overlay.props.hoverDelay : 0;
   }
@@ -77,6 +51,21 @@ export default class OverlayStore {
   @computed
   get autoClose() {
     return this.overlay.props.autoClose;
+  }
+
+  @computed
+  get animation() {
+    return this.overlay.props.animation;
+  }
+
+  @computed
+  get zIndex() {
+    return this.overlay.props.zIndex;
+  }
+
+  @computed
+  get flip() {
+    return this.overlay.props.flip;
   }
 
   @action.bound
@@ -111,12 +100,7 @@ export default class OverlayStore {
     }
     if (this.showTimer) clearTimeout(this.showTimer);
 
-    this.showTimer = setTimeout(
-      action("show-popper", () => {
-        this.show = true;
-      }),
-      this.hoverDelay
-    );
+    this.showTimer = setTimeout(action("show-popper", this.showOverlay), this.hoverDelay);
   }
 
   @action.bound
@@ -127,53 +111,21 @@ export default class OverlayStore {
 
     if (this.showTimer) clearTimeout(this.showTimer);
 
-    this.showTimer = setTimeout(
-      action("hide-popper", () => {
-        this.show = false;
-      }),
-      this.hoverDelay
-    );
+    this.showTimer = setTimeout(action("hide-popper", this.closeOverlay), this.hoverDelay);
   }
 
   @action.bound
-  autoCloseOverlay(e) {
-    if (!this.autoClose) return;
-    if (!this.show) return;
-    if (!this.popper) return;
-    if (this.node.contains(e.target) || this.popperContainer.contains(e.target)) return;
+  closeOverlay() {
     this.show = false;
+  }
+
+  @action.bound
+  showOverlay() {
+    this.show = true;
   }
 
   @action.bound
   bindReference(reference) {
     this.reference = reference;
-  }
-
-  @action.bound
-  bindPopper(container) {
-    this.popperContainer = container;
-  }
-
-  @action.bound
-  bindArrow(arrowElement) {
-    this.arrowElement = arrowElement;
-  }
-
-  @action.bound
-  initPopper() {
-    if (this.popper) {
-      this.popper.destroy();
-    }
-    this.popper = new Popper(this.reference, this.popperContainer, this.popperOptions);
-    document.addEventListener("click", this.autoCloseOverlay);
-  }
-
-  @action.bound
-  destroyPopper() {
-    if (this.popper) {
-      this.popper.destroy();
-    }
-    this.popper = null;
-    document.removeEventListener("click", this.autoCloseOverlay);
   }
 }
