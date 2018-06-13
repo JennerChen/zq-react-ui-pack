@@ -5469,7 +5469,7 @@ polished@^1.9.2:
   version "1.9.2"
   resolved "http://registry.npm.taobao.org/polished/download/polished-1.9.2.tgz#d705cac66f3a3ed1bd38aad863e2c1e269baf6b6"
 
-popper.js@^1.11.1, popper.js@^1.14.1:
+popper.js@^1.11.1, popper.js@^1.14.1, popper.js@^1.14.3:
   version "1.14.3"
   resolved "http://registry.npm.taobao.org/popper.js/download/popper.js-1.14.3.tgz#1438f98d046acf7b4d78cd502bf418ac64d4f095"
 

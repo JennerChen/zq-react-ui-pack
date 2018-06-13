@@ -55,6 +55,7 @@ const Demo = enhance(
             {({ ref }) => (
               <ReferenceBox innerRef={ref}>
                 <a
+                  ref={ link => console.log(link) }
                   href="https://github.com/FezVrasta/react-popper"
                   target="_blank"
                 >
@@ -68,26 +69,26 @@ const Demo = enhance(
               {({ ref, style, placement, arrowProps }) => (
                 <TransitionedPopperBox innerRef={ref} style={style}>
                   {placement}
-                  {/*<Arrow*/}
-                    {/*innerRef={arrowProps.ref}*/}
-                    {/*data-placement={placement}*/}
-                    {/*style={arrowProps.style}*/}
-                  {/*/>*/}
+                  <Arrow
+                    innerRef={arrowProps.ref}
+                    data-placement={placement}
+                    style={arrowProps.style}
+                  />
                 </TransitionedPopperBox>
               )}
             </Popper>
-            {/*{placements.filter(p => p !== activePlacement).map(p => (*/}
-              {/*<Popper placement={p} key={p} modifiers={modifiers}>*/}
-                {/*{({ ref, style }) => (*/}
-                  {/*<PopperDot*/}
-                    {/*innerRef={ref}*/}
-                    {/*style={style}*/}
-                    {/*onClick={() => setActivePlacement(p)}*/}
-                    {/*title={p}*/}
-                  {/*/>*/}
-                {/*)}*/}
-              {/*</Popper>*/}
-            {/*))}*/}
+            {placements.filter(p => p !== activePlacement).map(p => (
+              <Popper placement={p} key={p} modifiers={modifiers}>
+                {({ ref, style }) => (
+                  <PopperDot
+                    innerRef={ref}
+                    style={style}
+                    onClick={() => setActivePlacement(p)}
+                    title={p}
+                  />
+                )}
+              </Popper>
+            ))}
           </PoppersContainer>
         </Manager>
       </Main>
@@ -132,6 +133,7 @@ const Demo = enhance(
                     <PopperBox
                       innerRef={ref}
                       style={{
+                        zIndex:999,
                         opacity,
                         top: 0,
                         left: 0,
