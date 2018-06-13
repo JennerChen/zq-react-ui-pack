@@ -71,11 +71,12 @@
     npmPkgInfo = JSON.parse(
       shell.exec(`yarn info ${ pkg.name } --json`, {
         silent: true
-      }).stdout);
+      }).stdout).data;
   }catch (e) {
     shell.echo(`无法获取远端包信息`);
     shell.exit(1);
   }
+  console.log(npmPkgInfo.versions);
   if (npmPkgInfo.versions.includes(version)){
     shell.echo(`版本 ${ version }, 已经存在`);
     shell.exit(1)
