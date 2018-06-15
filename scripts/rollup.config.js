@@ -22,7 +22,8 @@ export default {
     "prop-types",
     "styled-tools",
     "polished",
-    "popper.js"
+    "popper.js",
+    "styled-icons/material"
   ],
   plugins: [
     clear({

@@ -8,7 +8,7 @@ export class Overlay extends Component {
   static propTypes = {
     children: PropTypes.element.isRequired,
     trigger: PropTypes.oneOf(["click", "hover"]),
-    overlay: PropTypes.element.isRequired,
+    overlay: PropTypes.oneOfType([PropTypes.element, PropTypes.func]).isRequired,
     placement: PropTypes.oneOf(["bottom", "top", "left", "right"]),
     offset: PropTypes.number,
     arrow: PropTypes.bool,
@@ -51,6 +51,16 @@ export class Overlay extends Component {
     this.state = {
       overlay: new OverlayStore(this)
     };
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props !== prevProps) {
+      this.state.overlay.updateOverlayProps(this.props);
+    }
+  }
+
+  getOverlayApi() {
+    return this.state.overlay;
   }
 
   render() {

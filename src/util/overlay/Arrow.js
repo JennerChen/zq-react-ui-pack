@@ -62,24 +62,3 @@ export default styled.div`
     border-style: solid;
   }
 `;
-
-//&[data-placement*="right"] {
-//  left: 0;
-//  margin-left: -0.9em;
-//  height: 3em;
-//  width: 1em;
-//&::before {
-//    border-width: 1.5em 1em 1.5em 0;
-//    border-color: transparent ${prop("bg", "#fff")} transparent transparent;
-//  }
-//}
-//&[data-placement*="left"] {
-//  right: 0;
-//  margin-right: -0.9em;
-//  height: 3em;
-//  width: 1em;
-//&::before {
-//    border-width: 1.5em 0 1.5em 1em;
-//    border-color: transparent transparent transparent ${prop("bg", "#fff")};
-//  }
-//}

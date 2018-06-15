@@ -4,68 +4,74 @@ import { findDOMNode } from "react-dom";
 export default class OverlayStore {
   overlay = null;
 
+  @observable overlayProps = null;
   @observable show = false;
 
   constructor(overlay) {
     this.overlay = overlay;
+    this.overlayProps = overlay.props;
   }
 
   @computed
   get overlayContent() {
-    return this.overlay.props.overlay;
+    return this.overlayProps.overlay;
   }
 
   @computed
   get children() {
-    return this.overlay.props.children;
+    return this.overlayProps.children;
   }
 
   @computed
   get offset() {
-    return this.overlay.props.offset;
+    return this.overlayProps.offset;
   }
 
   @computed
   get placement() {
-    return this.overlay.props.placement;
+    return this.overlayProps.placement;
   }
 
   @computed
   get allowArrow() {
-    return this.overlay.props.arrow;
+    return this.overlayProps.arrow;
   }
 
   @computed
   get arrowStyleProps() {
     return {
-      size: this.overlay.props.arrowSize,
-      bg: this.overlay.props.arrowColor
+      size: this.overlayProps.arrowSize,
+      bg: this.overlayProps.arrowColor
     };
   }
 
   @computed
   get hoverDelay() {
-    return this.overlay.props.hoverDelay ? this.overlay.props.hoverDelay : 0;
+    return this.overlayProps.hoverDelay ? this.overlayProps.hoverDelay : 0;
   }
 
   @computed
   get autoClose() {
-    return this.overlay.props.autoClose;
+    return this.overlayProps.autoClose;
   }
 
   @computed
   get animation() {
-    return this.overlay.props.animation;
+    return this.overlayProps.animation;
   }
 
   @computed
   get zIndex() {
-    return this.overlay.props.zIndex;
+    return this.overlayProps.zIndex;
   }
 
   @computed
   get flip() {
-    return this.overlay.props.flip;
+    return this.overlayProps.flip;
+  }
+  @action.bound
+  updateOverlayProps(newProps) {
+    this.overlayProps = newProps;
   }
 
   @action.bound
@@ -87,7 +93,7 @@ export default class OverlayStore {
 
   @action.bound
   showPopperByClick() {
-    if (this.overlay.props.trigger !== "click") {
+    if (this.overlayProps.trigger !== "click") {
       return;
     }
     this.show = !this.show;
@@ -95,7 +101,7 @@ export default class OverlayStore {
 
   @action.bound
   showPopperByMouseEnter() {
-    if (this.overlay.props.trigger !== "hover") {
+    if (this.overlayProps.trigger !== "hover") {
       return;
     }
     if (this.showTimer) clearTimeout(this.showTimer);
@@ -105,7 +111,7 @@ export default class OverlayStore {
 
   @action.bound
   hidePopperByMouseEnter() {
-    if (this.overlay.props.trigger !== "hover") {
+    if (this.overlayProps.trigger !== "hover") {
       return;
     }
 

@@ -154,6 +154,7 @@ export default class extends Component {
     const {
       overlay: { overlayContent, allowArrow }
     } = this.props;
+
     return (
       <Container
         innerRef={container => (this.container = container)}
@@ -161,7 +162,7 @@ export default class extends Component {
         {allowArrow ? (
           <Arrow innerRef={arrow => (this.arrow = arrow)} {...this.getArrowProps()} />
         ) : null}
-        {overlayContent}
+        {typeof overlayContent === "function" ? overlayContent(this.overlay) : overlayContent}
       </Container>
     );
   }

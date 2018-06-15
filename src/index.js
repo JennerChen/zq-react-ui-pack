@@ -6,7 +6,7 @@ export { default as Button } from "./button";
 
 export { default as Card } from "./card";
 
-//export { default as Select } from "./Select";
+export { default as Select } from "./Select";
 
 export { Flex, Item, flex, item } from "./grid";
 

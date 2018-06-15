@@ -1,18 +1,16 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import { Manager, Reference, Popper } from "react-popper";
-import { Transition } from "react-spring";
+import { ArrowDropDown } from "styled-icons/material";
+import { prop } from "styled-tools";
 import { Flex, Item } from "../grid";
 import styles from "../styles";
-import Arrow from "./Arrow";
-const Container = styled.div`
-  position: relative;
-  display: inline-block;
-`;
+import { Overlay } from "../util/overlay";
+import { withRipple } from "../util/decorators";
 
-const SelectContainer = styled(Flex).attrs({
-  alignItems: "center"
+const SelectContainer = withRipple(styled(Flex).attrs({
+  alignItems: "center",
+  flex: "inline-flex"
 })`
   cursor: pointer;
   height: 30px;
@@ -20,100 +18,129 @@ const SelectContainer = styled(Flex).attrs({
   min-width: 100px;
   border: 1px solid #efefef;
   border-radius: 5px;
-  padding: 0 8px;
+  padding: 0 22px 0 8px;
   font-size: 12px;
   transition: all 0.3s;
   color: ${styles.text.second};
   user-select: none;
+  position: relative;
   &:hover {
     border-color: ${styles.primary};
+    background-color: #efefef;
   }
-`;
+`);
 
-const PopContainer = styled.div`
+const OptionsContainer = styled(Flex).attrs({
+  direction: "column"
+})`
   background-color: #fff;
-  z-index: 1001;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  padding: 8px 0;
+  box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14),
+    0px 3px 14px 2px rgba(0, 0, 0, 0.12);
   border-radius: 5px;
 `;
+const OptionContainer = withRipple(styled(Item).attrs({
+  overflow: "100%"
+})`
+  color: ${styles.text.second};
+  height: 30px;
+  cursor: pointer;
+  width: 100%;
+  padding: 4px 8px;
+  font-size: 12px;
+  ${prop("selected", "#efefef")};
+  &:hover {
+    background-color: #efefef;
+  }
+`);
 
-const modifiers = {
-  flip: { enabled: false },
-  //  preventOverflow: { enabled: false },
-  hide: { enabled: false }
-};
+const StyledArrowDropDown = styled(ArrowDropDown).attrs({
+  size: 16
+})`
+  position: absolute;
+  right: 8px;
+  top: 5px;
+`;
 
 export default class extends Component {
   static propTypes = {
     options: PropTypes.array,
-    value: PropTypes.any
+    value: PropTypes.any,
+    onChange: PropTypes.func.isRequired,
+    width: function(props, propName, componentName) {
+      if (props[propName] !== "auto" && !Number.isInteger(props[propName])) {
+        return new Error(
+          "Invalid prop `" +
+            propName +
+            "` supplied to" +
+            " `" +
+            componentName +
+            "`. Validation failed. expect `auto` or a valid integer"
+        );
+      }
+    },
+    placeholder: PropTypes.string,
+    style: PropTypes.object
   };
 
-  state = {
-    show: false
+  static defaultProps = {
+    width: "auto",
+    placeholder: "请选择"
   };
 
-  renderPopUp({ scale, opacity, offset }) {
-    return (
-      <Popper
-        placement="bottom"
-        modifiers={{
-          ...modifiers,
-          computeStyle: { gpuAcceleration: false }
-        }}>
-        {({ ref, style: { top, left, position }, placement, arrowProps }) => {
-          return (
-            <PopContainer
-              innerRef={ref}
-              style={{
-                marginTop: 12,
-                width: 160,
-                top: 0,
-                left: 0,
-                position,
-                opacity,
-                transform: `translate3d(${left}px, ${top}px, 0) scaleY(${scale})`,
-                transformOrigin: "top center"
-              }}>
-              <Arrow
-                bg={"#232323"}
-                innerRef={arrowProps.ref}
-                data-placement={placement}
-                style={arrowProps.style}
-              />
-              <p style={{ width: 150 }}>Popper element debugger debugger debugger</p>
-            </PopContainer>
-          );
-        }}
-      </Popper>
-    );
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: this.props.value
+    };
   }
 
+  handleSelect = option => {
+    if (option.value !== this.props.value) {
+      this.props.onChange(option.value, option);
+    }
+    this.overlay.getOverlayApi().closeOverlay();
+  };
+
   render() {
+    const { value, options, placeholder, style, className, width } = this.props;
+    let displayLabel = placeholder;
+    let selectedOption = options.find(option => option.value === value);
+    if (selectedOption) {
+      displayLabel = selectedOption.label;
+    }
     return (
-      <Container>
-        <Manager>
-          <Reference>
-            {({ ref }) => (
-              <SelectContainer
-                innerRef={ref}
-                onClick={() =>
-                  this.setState({
-                    show: !this.state.show
-                  })
-                }>
-                <Item>哈哈哈</Item>
-              </SelectContainer>
-            )}
-          </Reference>
-          <Transition
-            from={{ opacity: 0, offset: -20, scale: 0.5 }}
-            enter={{ opacity: 1, offset: 0, scale: 1 }}
-            leave={{ opacity: 0, offset: -20, scale: 0.5 }}>
-            {this.state.show && this.renderPopUp}
-          </Transition>
-        </Manager>
-      </Container>
+      <Overlay
+        ref={overlay => (this.overlay = overlay)}
+        animation={true}
+        autoClose={true}
+        offset={0}
+        overlay={() => (
+          <OptionsContainer
+            style={{
+              width: width === "auto" ? this.container.getBoundingClientRect().width : width
+            }}>
+            {options.map(option => (
+              <OptionContainer
+                key={option.value}
+                selected={option.value === value}
+                onClick={() => this.handleSelect(option)}
+                title={option.label}>
+                {option.label}
+              </OptionContainer>
+            ))}
+          </OptionsContainer>
+        )}>
+        <SelectContainer
+          className={className}
+          innerRef={container => (this.container = container)}
+          style={style}>
+          <Item overflow={"100%"} title={displayLabel}>
+            {displayLabel}
+          </Item>
+          <StyledArrowDropDown />
+        </SelectContainer>
+      </Overlay>
     );
   }
 }
