@@ -18,6 +18,7 @@ export default {
     "react-dom",
     "styled-components",
     "mobx",
+    "mobx-react",
     "react-spring",
     "prop-types",
     "styled-tools",
