@@ -6,7 +6,7 @@ import filesize from "rollup-plugin-filesize";
 import clear from "rollup-plugin-clear";
 import license from "rollup-plugin-license";
 import eslint from "rollup-plugin-eslint";
-
+const path = require("path");
 export default {
   input: "src/index.js",
   output: {
@@ -32,8 +32,8 @@ export default {
     }),
     json(),
     eslint({
-      throwOnError: true
-      //      throwOnWarning: true
+      throwOnError: true,
+      throwOnWarning: true
     }),
     resolve({
       jsnext: true,
@@ -58,7 +58,10 @@ export default {
       ignoreGlobal: false // Default: false
     }),
     license({
-      banner: `/** zq-react-ui-pack - Copyright (c) 2017 Qing  Zhang - MIT Licensed */`
+      banner: {
+        file: path.join(__dirname,'../LICENSE'),
+        encoding: 'utf-8',
+      },
     }),
     filesize({
       showGzippedSize: true
