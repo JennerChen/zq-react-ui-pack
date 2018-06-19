@@ -32,7 +32,7 @@ export default class extends Component {
           <FlexItem flex={1} >
             <Overlay
               overlay={
-                <div style={{ width: 100, height: 50, backgroundColor: "#efefef" }}>这是弹出内容</div>
+                () =>  <div style={{ width: 100, height: 50, backgroundColor: "#efefef" }}>这是弹出内容</div>
               }>
               <CustomSpan>默认参数</CustomSpan>
             </Overlay>

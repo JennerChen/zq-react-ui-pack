@@ -135,10 +135,10 @@ export default class extends Component {
           className={className}
           innerRef={container => (this.container = container)}
           style={style}>
-          <Item overflow={"100%"} title={displayLabel}>
+          <Item key={"content"} overflow={"100%"} title={displayLabel}>
             {displayLabel}
           </Item>
-          <StyledArrowDropDown />
+          <StyledArrowDropDown key={"arrow"} />
         </SelectContainer>
       </Overlay>
     );

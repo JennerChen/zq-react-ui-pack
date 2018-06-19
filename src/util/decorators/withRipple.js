@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import { findDOMNode } from "react-dom";
 import PropTypes from "prop-types";
 import styled, { keyframes } from "styled-components";
+import { switchProp } from "styled-tools";
 import { decorate } from "./util";
 import { randomStr } from "../randomStr";
 
@@ -36,17 +37,25 @@ function getDecorator(withArgs, allowRipple) {
     const StyledComp = styled(Comp)`
       overflow: hidden;
       position: relative;
+      ${switchProp("shape", {
+        square: "",
+        circle: "border-radius: 50%;"
+      })};
     `;
 
     return class extends Component {
       static propTypes = {
         allowRipple: PropTypes.bool,
-        rippleColor: PropTypes.string
+        rippleColor: PropTypes.string,
+        rippleShape: PropTypes.oneOf(["square", "circle"]),
+        rippleEffect: PropTypes.oneOf(["center", "event"])
       };
 
       static defaultProps = {
         disabled: false,
-        allowRipple: withArgs ? allowRipple : true
+        allowRipple: withArgs ? allowRipple : true,
+        rippleShape: "square",
+        rippleEffect: "event"
       };
 
       state = {
@@ -70,10 +79,24 @@ function getDecorator(withArgs, allowRipple) {
 
       showRipple = e => {
         if (!this.props.allowRipple || this.props.disabled) return;
-        const { left, top } = this.dom.getBoundingClientRect();
+        const { left, top, width, height } = this.dom.getBoundingClientRect();
         const size = this.dom.offsetWidth;
-        let x = e.pageX - left - size / 2;
-        let y = e.pageY - top - size / 2;
+
+        let triggerPointX, triggerPointY;
+
+        switch (this.props.rippleEffect) {
+          case "center":
+            triggerPointX = left + 0.5 * width;
+            triggerPointY = top + 0.5 * height;
+            break;
+          case "event":
+          default:
+            triggerPointX = e.pageX;
+            triggerPointY = e.pageY;
+        }
+
+        let x = triggerPointX - left - size / 2;
+        let y = triggerPointY - top - size / 2;
         this.setState({
           currentRipple: {
             key: randomStr(),
@@ -85,10 +108,18 @@ function getDecorator(withArgs, allowRipple) {
       };
 
       render() {
-        const { ref, allowRipple, rippleColor, children, ...rest } = this.props;
+        const {
+          ref,
+          allowRipple,
+          rippleColor,
+          rippleShape,
+          rippleEffect,
+          children,
+          ...rest
+        } = this.props;
         const { currentRipple } = this.state;
         return (
-          <StyledComp ref={component => (this.component = component)} {...rest}>
+          <StyledComp ref={component => (this.component = component)} shape={rippleShape} {...rest}>
             <Fragment>
               {children}
               {currentRipple ? (
