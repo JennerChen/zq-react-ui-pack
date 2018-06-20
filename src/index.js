@@ -13,4 +13,7 @@ export { Flex, Item, flex, item } from "./grid";
 export { Spin } from "./indicator";
 
 export { default as Checkbox } from "./checkbox";
+
+export { default as Radio } from "./radio";
+
 export const utils = _utils;

@@ -37,7 +37,7 @@ function getDecorator(withArgs, allowRipple) {
     const StyledComp = styled(Comp)`
       overflow: hidden;
       position: relative;
-      ${switchProp("shape", {
+      ${switchProp("rippleshape", {
         square: "",
         circle: "border-radius: 50%;"
       })};
@@ -119,7 +119,10 @@ function getDecorator(withArgs, allowRipple) {
         } = this.props;
         const { currentRipple } = this.state;
         return (
-          <StyledComp ref={component => (this.component = component)} shape={rippleShape} {...rest}>
+          <StyledComp
+            ref={component => (this.component = component)}
+            rippleshape={rippleShape}
+            {...rest}>
             <Fragment>
               {children}
               {currentRipple ? (
