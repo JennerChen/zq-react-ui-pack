@@ -1,6 +1,6 @@
 {
   "name": "zq-react-ui-pack",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "zq ui tools for build web application",
   "main": "build/zq-react-ui-pack.js",
   "jsnext:main": "build/zq-react-ui-pack.js",
