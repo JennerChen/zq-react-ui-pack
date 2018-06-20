@@ -73,9 +73,9 @@ export default class extends Component {
   };
 
   render() {
-    const { size, color, style, pause, value } = this.props;
+    const { size, color, style, pause, value, className } = this.props;
     return (
-      <Container pause={pause} style={{ style, width: size, height: size }}>
+      <Container className={className} pause={pause} style={{ style, width: size, height: size }}>
         <svg viewBox={"22 22 44 44"} style={{ width: size, height: size }}>
           <Spinner
             pause={pause}

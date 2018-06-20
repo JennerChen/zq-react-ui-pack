@@ -4,9 +4,9 @@ import { action } from "@storybook/addon-actions";
 import { Checkbox } from "../../src";
 
 const makePromise = fn => {
-  return () => {
+  return val => {
     let p = new Promise(resolve => {
-      setTimeout(() => resolve(fn.apply(this, Array.from(arguments))), 1000);
+      setTimeout(() => resolve(fn.apply(this, [val])), 1000);
     });
     return p;
   };
@@ -49,8 +49,7 @@ export default class extends Component {
             this.setState({
               check3: val
             })
-          )}
-        >
+          )}>
           包含异步加载功能
         </Checkbox>
       </div>

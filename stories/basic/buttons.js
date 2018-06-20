@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { action } from "@storybook/addon-actions";
-import { Button, utils, Card } from "../../src";
+import { Button, utils } from "../../src";
 import { ArrowDropDownCircle, VerticalAlignTop } from "styled-icons/material";
 function req() {
   return new Promise(res => {
@@ -14,9 +14,6 @@ export default class Buttons extends Component {
     return (
       <div>
         <ArrowDropDownCircle size={24} />
-        <Card rippleColor={"pink"}>
-          <i className={"iconfont"}>&#xe78c;</i>
-        </Card>
 
         <Button tagName={"a"} style={{ height: 30 }} disabled>
           按钮禁用

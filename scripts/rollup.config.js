@@ -24,7 +24,8 @@ export default {
     "styled-tools",
     "polished",
     "popper.js",
-    "styled-icons/material"
+    "styled-icons/material",
+    "react-content-loader"
   ],
   plugins: [
     clear({

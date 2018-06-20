@@ -6,6 +6,7 @@ import Selects from "./Selects";
 import Indicators from "./Indicators";
 import Checkboxs from "./checkboxs";
 import Radios from "./radios";
+import Cards from "./cards";
 
 storiesOf("基础组件", module)
   .addWithJSX("按钮（Button）", () => <Buttons />)
@@ -14,4 +15,5 @@ storiesOf("基础组件", module)
   .addWithJSX("checkbox", ()=> <Checkboxs/>)
   .addWithJSX("Indicator", () => <Indicators />)
   .addWithJSX("Radios", ()=> <Radios/>)
+  .addWithJSX("Cards", ()=> <Cards/>)
 ;
