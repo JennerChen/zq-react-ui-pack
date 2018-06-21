@@ -154,7 +154,6 @@ export default class extends Component {
     const {
       overlay: { overlayContent, allowArrow }
     } = this.props;
-
     return (
       <Container
         innerRef={container => (this.container = container)}

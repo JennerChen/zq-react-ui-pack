@@ -1,4 +1,4 @@
-import { observable, action, computed } from "mobx";
+import { observable, action, computed, toJS } from "mobx";
 import { findDOMNode } from "react-dom";
 
 export default class OverlayStore {
@@ -14,7 +14,7 @@ export default class OverlayStore {
 
   @computed
   get overlayContent() {
-    return this.overlayProps.overlay;
+    return toJS(this.overlayProps.overlay);
   }
 
   @computed
@@ -69,6 +69,12 @@ export default class OverlayStore {
   get flip() {
     return this.overlayProps.flip;
   }
+
+  @computed
+  get disabled() {
+    return this.overlayProps.disabled;
+  }
+
   @action.bound
   updateOverlayProps(newProps) {
     this.overlayProps = newProps;
@@ -93,7 +99,7 @@ export default class OverlayStore {
 
   @action.bound
   showPopperByClick() {
-    if (this.overlayProps.trigger !== "click") {
+    if (this.disabled || this.overlayProps.trigger !== "click") {
       return;
     }
     this.show = !this.show;
@@ -101,7 +107,7 @@ export default class OverlayStore {
 
   @action.bound
   showPopperByMouseEnter() {
-    if (this.overlayProps.trigger !== "hover") {
+    if (this.disabled || this.overlayProps.trigger !== "hover") {
       return;
     }
     if (this.showTimer) clearTimeout(this.showTimer);

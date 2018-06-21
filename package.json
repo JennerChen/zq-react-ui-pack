@@ -1,6 +1,6 @@
 {
   "name": "zq-react-ui-pack",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "zq ui tools for build web application",
   "main": "build/zq-react-ui-pack.js",
   "jsnext:main": "build/zq-react-ui-pack.js",
@@ -45,8 +45,8 @@
     "mobx-react": "^5.1.2",
     "prettier": "^1.10.2",
     "prop-types": "^15.6.1",
-    "react": "^16.4.0",
-    "react-dom": "^16.4.0",
+    "react": "16.4.1",
+    "react-dom": "16.4.1",
     "react-emotion": "^9.2.3",
     "recompose": "^0.27.1",
     "rimraf": "^2.6.2",

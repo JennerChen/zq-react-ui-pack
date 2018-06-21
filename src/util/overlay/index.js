@@ -29,7 +29,8 @@ export class Overlay extends Component {
         );
       }
     },
-    flip: PropTypes.bool
+    flip: PropTypes.bool,
+    disabled: PropTypes.bool
   };
 
   static defaultProps = {
@@ -43,7 +44,8 @@ export class Overlay extends Component {
     hoverDelay: 200,
     animation: false,
     zIndex: "auto",
-    flip: true
+    flip: true,
+    disabled: false
   };
 
   constructor(props) {
