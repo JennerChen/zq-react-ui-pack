@@ -1,12 +1,10 @@
-import React, { Component, createElement, cloneElement } from "react";
-import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 import { switchProp, ifProp } from "styled-tools";
 import { Clear } from "styled-icons/material";
 import { withRipple } from "../util";
 import styles from "../styles";
 
-const StyledClearIcon = styled(Clear).attrs({
+export const StyledClearIcon = styled(Clear).attrs({
   size: 20,
   title: "清除"
 })`
@@ -17,7 +15,7 @@ const StyledClearIcon = styled(Clear).attrs({
   }
 `;
 
-const Container = styled.div`
+export const MDContainer = styled.div`
   position: relative;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
   display: inline-block;
@@ -68,7 +66,7 @@ const Container = styled.div`
   }
 `;
 
-const LeanIcon = withRipple({
+export const LeanIcon = withRipple({
   allowRipple: false,
   rippleShape: "circle",
   rippleEffect: "center",
@@ -93,7 +91,7 @@ const LeanIcon = withRipple({
   })};
 `);
 
-const TrailIcon = withRipple({
+export const TrailIcon = withRipple({
   allowRipple: false,
   rippleShape: "circle",
   rippleEffect: "center",
@@ -119,7 +117,7 @@ const TrailIcon = withRipple({
   })};
 `);
 
-const Input = styled.input`
+export const BaseInput = styled.input`
   outline: none;
   width: 100%;
   height: 100%;
@@ -128,24 +126,22 @@ const Input = styled.input`
   border: none;
   transition: border-color 0.3s;
   border-radius: 5px;
-  padding: ${css`
-    ${switchProp("size", {
-      standard: switchProp("mode", {
-        filled: "20px",
-        outlined: "6px"
-      }),
-      dense: switchProp("mode", {
-        filled: "16px",
-        outlined: "2px"
-      })
-    })} 
-  ${ifProp("trailIcon", "36px", "12px")} 
-  0 
-  ${ifProp("leanIcon", "40px", "16px")}
-`};
+  padding-top: ${switchProp("size", {
+    standard: switchProp("mode", {
+      filled: "20px",
+      outlined: "6px"
+    }),
+    dense: switchProp("mode", {
+      filled: "16px",
+      outlined: "2px"
+    })
+  })};
+  padding-left: ${ifProp("leanIcon", "40px", "12px")};
+  padding-right: ${ifProp("trailIcon", "40px", "16px")};
+  padding-bottom: 0;
 `;
 
-const OutlineLabel = styled.span`
+export const OutlineLabel = styled.span`
   position: absolute;
 
   font-size: 18px;
@@ -172,6 +168,16 @@ const OutlineLabel = styled.span`
       top: 14px;
     `
   })};
+
+  ${ifProp(
+    "focus",
+    css`
+      color: ${styles.primary};
+    `,
+    css`
+      color: ${styles.text.third};
+    `
+  )};
   ${ifProp(
     "float",
     css`
@@ -196,16 +202,12 @@ const OutlineLabel = styled.span`
             scale(0.75);
         `
       })};
-
-      color: ${styles.primary};
     `,
-    css`
-      color: ${styles.text.third};
-    `
+    css``
   )};
 `;
 
-const BottomLine = styled.div`
+export const BottomLine = styled.div`
   height: 2px;
   position: absolute;
   bottom: -1px;
@@ -229,11 +231,11 @@ const BottomLine = styled.div`
   )};
 `;
 
-const HelpTextContainer = styled.div`
+export const HelpTextContainer = styled.div`
   position: absolute;
   top: ${switchProp("size", {
     standard: "58px",
-    dense: "48px"
+    dense: "50px"
   })};
   left: 0;
   width: 100%;
@@ -244,131 +246,3 @@ const HelpTextContainer = styled.div`
   padding-right: 12px;
   pointer-events: none;
 `;
-
-class MDInput extends Component {
-  static propTypes = {
-    size: PropTypes.oneOf(["standard", "dense"]),
-    mode: PropTypes.oneOf(["filled", "outlined"]),
-    type: PropTypes.oneOf(["text", "password"]),
-    label: PropTypes.string,
-    value: PropTypes.any.isRequired,
-    onChange: PropTypes.func.isRequired,
-    leanIcon: PropTypes.func,
-    trailIcon: PropTypes.func,
-    helpText: PropTypes.string,
-    clearIcon: PropTypes.bool,
-    style: PropTypes.object
-  };
-
-  static defaultProps = {
-    size: "standard",
-    mode: "filled",
-    clearIcon: false,
-    style: {}
-  };
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      isFocus: false
-    };
-  }
-
-  focusInput = () => {
-    this.setState({
-      isFocus: true
-    });
-  };
-
-  blurInput = () => {
-    this.setState({
-      isFocus: false
-    });
-  };
-
-  handleOnChange = e => {
-    this.props.onChange(e.target.value);
-  };
-
-  emptyValue = () => {
-    if (!this.props.value) return;
-    this.props.onChange("");
-  };
-
-  renderLeanIcon() {
-    const { size, leanIcon } = this.props;
-
-    return cloneElement(leanIcon(LeanIcon), {
-      size
-    });
-  }
-
-  renderTrailIcon() {
-    const { size, trailIcon, clearIcon, value } = this.props;
-
-    let trailIconComp = clearIcon ? (
-      value ? (
-        <TrailIcon allowRipple={!!value} onClick={this.emptyValue}>
-          <StyledClearIcon size={20} />
-        </TrailIcon>
-      ) : null
-    ) : (
-      trailIcon(TrailIcon)
-    );
-
-    if (!trailIconComp) {
-      return null;
-    }
-
-    return cloneElement(trailIconComp, {
-      size
-    });
-  }
-  render() {
-    const {
-      size,
-      mode,
-      label,
-      value,
-      leanIcon,
-      trailIcon,
-      helpText,
-      clearIcon,
-      style
-    } = this.props;
-    const { isFocus } = this.state;
-    let hasTrailIcon = clearIcon ? clearIcon : !!trailIcon;
-    let hasLeanIcon = !!leanIcon;
-
-    return (
-      <Container size={size} mode={mode} focus={isFocus} style={style}>
-        {leanIcon ? this.renderLeanIcon() : null}
-        {hasTrailIcon ? this.renderTrailIcon() : null}
-        <Input
-          size={size}
-          leanIcon={hasLeanIcon}
-          trailIcon={hasTrailIcon}
-          onFocus={this.focusInput}
-          onBlur={this.blurInput}
-          onChange={this.handleOnChange}
-          value={value}
-          mode={mode}
-        />
-        <OutlineLabel
-          leanIcon={hasLeanIcon}
-          trailIcon={hasTrailIcon}
-          size={size}
-          float={isFocus || !!value}
-          mode={mode}>
-          {label}
-        </OutlineLabel>
-        {mode === "filled" ? <BottomLine focus={isFocus} /> : null}
-
-        <HelpTextContainer size={size}>{helpText}</HelpTextContainer>
-      </Container>
-    );
-  }
-}
-MDInput.TrailIcon = TrailIcon;
-MDInput.LeanIcon = LeanIcon;
-export default MDInput;

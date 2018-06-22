@@ -24,7 +24,7 @@ export default class Cards extends Component {
             label={"username"}
             value={this.state.value1}
             leanIcon={LeanIcon => (
-              <LeanIcon allowRipple={true}>
+              <LeanIcon>
                 <VerifiedUser size={20} />
               </LeanIcon>
             )}
@@ -39,11 +39,12 @@ export default class Cards extends Component {
           />
 
           <Input
+            type={ "password" }
             mode={"outlined"}
-            label={"username"}
+            label={"password"}
             value={this.state.value1}
             trailIcon={TrailIcon => (
-              <TrailIcon allowRipple={true}>
+              <TrailIcon>
                 <AccessAlarm size={20} />
               </TrailIcon>
             )}
@@ -52,7 +53,7 @@ export default class Cards extends Component {
                 value1: value
               })
             }
-            helpText={"请输入用户名"}
+            helpText={"请输入密码"}
             style={{ marginRight: 40, width: 300 }}
           />
         </Flex>
@@ -71,7 +72,7 @@ export default class Cards extends Component {
             label={"username"}
             value={this.state.value1}
             leanIcon={LeanIcon => (
-              <LeanIcon allowRipple={true}>
+              <LeanIcon>
                 <VerifiedUser size={20} />
               </LeanIcon>
             )}
@@ -90,8 +91,13 @@ export default class Cards extends Component {
             mode={"outlined"}
             label={"username"}
             value={this.state.value1}
+            leanIcon={LeanIcon => (
+              <LeanIcon>
+                <VerifiedUser size={20} />
+              </LeanIcon>
+            )}
             trailIcon={TrailIcon => (
-              <TrailIcon allowRipple={true}>
+              <TrailIcon>
                 <AccessAlarm size={20} />
               </TrailIcon>
             )}
