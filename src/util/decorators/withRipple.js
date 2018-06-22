@@ -32,7 +32,10 @@ const Ripple = styled.span`
   user-select: none;
 `;
 
-function getDecorator(withArgs, allowRipple) {
+function getDecorator(
+  withArgs,
+  { allowRipple = true, rippleShape = "square", rippleEffect = "event", rippleColor = "#fff" } = {}
+) {
   return Comp => {
     const StyledComp = styled(Comp)`
       overflow: hidden;
@@ -54,8 +57,9 @@ function getDecorator(withArgs, allowRipple) {
       static defaultProps = {
         disabled: false,
         allowRipple: withArgs ? allowRipple : true,
-        rippleShape: "square",
-        rippleEffect: "event"
+        rippleColor: withArgs ? rippleColor : null,
+        rippleShape: withArgs ? rippleShape : "square",
+        rippleEffect: withArgs ? rippleEffect : "event"
       };
 
       state = {
