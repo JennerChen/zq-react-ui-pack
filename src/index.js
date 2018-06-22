@@ -18,6 +18,6 @@ export { default as Radio } from "./radio";
 
 export { default as Tooltip } from "./tooltip";
 
-export { Input } from "./input";
+export { Input, MDSelect, TrailIcon, LeanIcon } from "./input";
 
 export const utils = _utils;

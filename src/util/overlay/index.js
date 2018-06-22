@@ -30,7 +30,9 @@ export class Overlay extends Component {
       }
     },
     flip: PropTypes.bool,
-    disabled: PropTypes.bool
+    disabled: PropTypes.bool,
+    visible: PropTypes.bool,
+    onVisibleChange: PropTypes.func
   };
 
   static defaultProps = {
@@ -45,7 +47,8 @@ export class Overlay extends Component {
     animation: false,
     zIndex: "auto",
     flip: true,
-    disabled: false
+    disabled: false,
+    onVisibleChange: () => true
   };
 
   constructor(props) {

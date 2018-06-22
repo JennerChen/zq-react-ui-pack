@@ -75,6 +75,16 @@ export default class OverlayStore {
     return this.overlayProps.disabled;
   }
 
+  @computed
+  get visible() {
+    return this.overlayProps.visible;
+  }
+
+  @action.bound
+  getOnVisibleChange() {
+    return this.overlayProps.onVisibleChange;
+  }
+
   @action.bound
   updateOverlayProps(newProps) {
     this.overlayProps = newProps;
@@ -102,7 +112,10 @@ export default class OverlayStore {
     if (this.disabled || this.overlayProps.trigger !== "click") {
       return;
     }
-    this.show = !this.show;
+
+    if (this.getOnVisibleChange()(!this.show) !== false) {
+      this.show = !this.show;
+    }
   }
 
   @action.bound
@@ -110,9 +123,12 @@ export default class OverlayStore {
     if (this.disabled || this.overlayProps.trigger !== "hover") {
       return;
     }
+
     if (this.showTimer) clearTimeout(this.showTimer);
 
-    this.showTimer = setTimeout(action("show-popper", this.showOverlay), this.hoverDelay);
+    if (this.getOnVisibleChange()(true) !== false) {
+      this.showTimer = setTimeout(action("show-popper", this.forceShowOverlay), this.hoverDelay);
+    }
   }
 
   @action.bound
@@ -123,16 +139,32 @@ export default class OverlayStore {
 
     if (this.showTimer) clearTimeout(this.showTimer);
 
-    this.showTimer = setTimeout(action("hide-popper", this.closeOverlay), this.hoverDelay);
+    if (this.getOnVisibleChange()(false) !== false) {
+      this.showTimer = setTimeout(action("hide-popper", this.forceCloseOverlay), this.hoverDelay);
+    }
   }
 
   @action.bound
   closeOverlay() {
-    this.show = false;
+    if (this.getOnVisibleChange()(false) !== false) {
+      this.show = false;
+    }
   }
 
   @action.bound
   showOverlay() {
+    if (this.getOnVisibleChange()(true) !== false) {
+      this.show = true;
+    }
+  }
+
+  @action.bound
+  forceCloseOverlay() {
+    this.show = false;
+  }
+
+  @action.bound
+  forceShowOverlay() {
     this.show = true;
   }
 

@@ -1,15 +1,7 @@
-import React, { Component, cloneElement } from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import {
-  StyledClearIcon,
-  MDContainer,
-  LeanIcon,
-  TrailIcon,
-  BaseInput,
-  OutlineLabel,
-  BottomLine,
-  HelpTextContainer
-} from "./BaseUI";
+import { MDContainer, BaseInput, OutlineLabel, BottomLine, HelpTextContainer } from "./BaseUI";
+import { renderLeanIcon, renderTrailIcon } from "./BaseFn";
 
 class MDInput extends Component {
   static propTypes = {
@@ -22,14 +14,14 @@ class MDInput extends Component {
     leanIcon: PropTypes.func,
     trailIcon: PropTypes.func,
     helpText: PropTypes.string,
-    clearIcon: PropTypes.bool,
+    allowClear: PropTypes.bool,
     style: PropTypes.object
   };
 
   static defaultProps = {
     size: "standard",
     mode: "filled",
-    clearIcon: false,
+    allowClear: false,
     style: {}
   };
 
@@ -61,35 +53,6 @@ class MDInput extends Component {
     this.props.onChange("");
   };
 
-  renderLeanIcon() {
-    const { size, leanIcon } = this.props;
-
-    return cloneElement(leanIcon(LeanIcon), {
-      size
-    });
-  }
-
-  renderTrailIcon() {
-    const { size, trailIcon, clearIcon, value } = this.props;
-
-    let trailIconComp = clearIcon ? (
-      value ? (
-        <TrailIcon allowRipple={!!value} onClick={this.emptyValue}>
-          <StyledClearIcon size={20} />
-        </TrailIcon>
-      ) : null
-    ) : (
-      trailIcon(TrailIcon)
-    );
-
-    if (!trailIconComp) {
-      return null;
-    }
-
-    return cloneElement(trailIconComp, {
-      size
-    });
-  }
   render() {
     const {
       size,
@@ -99,29 +62,40 @@ class MDInput extends Component {
       leanIcon,
       trailIcon,
       helpText,
-      clearIcon,
+      allowClear,
       style,
-      type
+      type,
+      className
     } = this.props;
     const { isFocus } = this.state;
-    let hasTrailIcon = clearIcon ? clearIcon : !!trailIcon;
+    let hasTrailIcon = allowClear ? allowClear : !!trailIcon;
     let hasLeanIcon = !!leanIcon;
+    let inputElement = null;
+
+    switch (type) {
+      case "text":
+      case "password":
+      default:
+        inputElement = (
+          <BaseInput
+            type={type}
+            size={size}
+            leanIcon={hasLeanIcon}
+            trailIcon={hasTrailIcon}
+            onFocus={this.focusInput}
+            onBlur={this.blurInput}
+            onChange={this.handleOnChange}
+            value={value}
+            mode={mode}
+          />
+        );
+    }
 
     return (
-      <MDContainer size={size} mode={mode} focus={isFocus} style={style}>
-        {leanIcon ? this.renderLeanIcon() : null}
-        {hasTrailIcon ? this.renderTrailIcon() : null}
-        <BaseInput
-          type={type}
-          size={size}
-          leanIcon={hasLeanIcon}
-          trailIcon={hasTrailIcon}
-          onFocus={this.focusInput}
-          onBlur={this.blurInput}
-          onChange={this.handleOnChange}
-          value={value}
-          mode={mode}
-        />
+      <MDContainer className={className} size={size} mode={mode} focus={isFocus} style={style}>
+        {leanIcon ? renderLeanIcon(this) : null}
+        {hasTrailIcon ? renderTrailIcon(this) : null}
+        {inputElement}
         <OutlineLabel
           leanIcon={hasLeanIcon}
           trailIcon={hasTrailIcon}
@@ -138,6 +112,5 @@ class MDInput extends Component {
     );
   }
 }
-MDInput.TrailIcon = TrailIcon;
-MDInput.LeanIcon = LeanIcon;
+
 export default MDInput;

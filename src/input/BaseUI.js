@@ -141,6 +141,23 @@ export const BaseInput = styled.input`
   padding-bottom: 0;
 `;
 
+export const BaseSpan = styled(BaseInput.withComponent("div"))`
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: normal;
+  line-height: ${switchProp("size", {
+    standard: switchProp("mode", {
+      filled: "30px",
+      outlined: "48px"
+    }),
+    dense: switchProp("mode", {
+      filled: "30px",
+      outlined: "46px"
+    })
+  })};
+`;
+
 export const OutlineLabel = styled.span`
   position: absolute;
 
