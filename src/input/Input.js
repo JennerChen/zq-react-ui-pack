@@ -15,7 +15,8 @@ class MDInput extends Component {
     trailIcon: PropTypes.func,
     helpText: PropTypes.string,
     allowClear: PropTypes.bool,
-    style: PropTypes.object
+    style: PropTypes.object,
+    disabled: PropTypes.bool
   };
 
   static defaultProps = {
@@ -65,7 +66,8 @@ class MDInput extends Component {
       allowClear,
       style,
       type,
-      className
+      className,
+      disabled
     } = this.props;
     const { isFocus } = this.state;
     let hasTrailIcon = allowClear ? allowClear : !!trailIcon;
@@ -87,12 +89,19 @@ class MDInput extends Component {
             onChange={this.handleOnChange}
             value={value}
             mode={mode}
+            disabled={disabled}
           />
         );
     }
 
     return (
-      <MDContainer className={className} size={size} mode={mode} focus={isFocus} style={style}>
+      <MDContainer
+        className={className}
+        size={size}
+        mode={mode}
+        focus={isFocus}
+        disabled={disabled}
+        style={style}>
         {leanIcon ? renderLeanIcon(this) : null}
         {hasTrailIcon ? renderTrailIcon(this) : null}
         {inputElement}
@@ -107,7 +116,9 @@ class MDInput extends Component {
         </OutlineLabel>
         {mode === "filled" ? <BottomLine focus={isFocus} /> : null}
 
-        <HelpTextContainer size={size}>{helpText}</HelpTextContainer>
+        <HelpTextContainer size={size} disabled={disabled}>
+          {helpText}
+        </HelpTextContainer>
       </MDContainer>
     );
   }

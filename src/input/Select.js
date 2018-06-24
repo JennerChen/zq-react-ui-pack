@@ -39,7 +39,7 @@ export default class MDSelect extends Component {
     size: PropTypes.oneOf(["standard", "dense"]),
     mode: PropTypes.oneOf(["filled", "outlined"]),
     label: PropTypes.string,
-    value: PropTypes.any.isRequired,
+    value: PropTypes.any,
     options: PropTypes.array.isRequired,
     onChange: PropTypes.func.isRequired,
     leanIcon: PropTypes.func,
@@ -57,7 +57,8 @@ export default class MDSelect extends Component {
             "`. Validation failed. expect `auto` or a valid integer"
         );
       }
-    }
+    },
+    disabled: PropTypes.bool
   };
 
   static defaultProps = {
@@ -97,7 +98,8 @@ export default class MDSelect extends Component {
       style,
       className,
       width,
-      options
+      options,
+      disabled
     } = this.props;
     const { isFocus } = this.state;
     let hasTrailIcon = allowClear ? allowClear : !!trailIcon;
@@ -115,6 +117,7 @@ export default class MDSelect extends Component {
         size={size}
         mode={mode}
         focus={isFocus}
+        disabled={disabled}
         style={style}>
         {leanIcon ? renderLeanIcon(this) : null}
         {hasTrailIcon ? renderTrailIcon(this) : null}
@@ -124,6 +127,7 @@ export default class MDSelect extends Component {
           autoClose={true}
           offset={4}
           zIndex={8888}
+          disabled={disabled}
           onVisibleChange={visible => {
             this.setState({
               isFocus: visible
@@ -146,6 +150,7 @@ export default class MDSelect extends Component {
             </OptionsContainer>
           )}>
           <BaseSpan
+            disabled={disabled}
             size={size}
             leanIcon={hasLeanIcon}
             trailIcon={hasTrailIcon}
@@ -161,12 +166,15 @@ export default class MDSelect extends Component {
           size={size}
           float={isFocus || !this.isEmptyValue()}
           focus={isFocus}
+          disabled={disabled}
           mode={mode}>
           {label}
         </OutlineLabel>
         {mode === "filled" ? <BottomLine focus={isFocus} /> : null}
 
-        <HelpTextContainer size={size}>{helpText}</HelpTextContainer>
+        <HelpTextContainer size={size} disabled={disabled}>
+          {helpText}
+        </HelpTextContainer>
       </MDContainer>
     );
   }

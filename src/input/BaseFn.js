@@ -2,15 +2,16 @@ import React, { cloneElement } from "react";
 import { LeanIcon, TrailIcon, StyledClearIcon } from "./BaseUI";
 
 export const renderLeanIcon = component => {
-  const { size, leanIcon } = component.props;
+  const { size, leanIcon, disabled } = component.props;
 
   return cloneElement(leanIcon(LeanIcon), {
-    size
+    size,
+    disabled
   });
 };
 
 export const renderTrailIcon = component => {
-  const { size, trailIcon, allowClear, value } = component.props;
+  const { size, trailIcon, allowClear, value, disabled } = component.props;
 
   let trailIconComp = allowClear ? (
     value ? (
@@ -27,6 +28,7 @@ export const renderTrailIcon = component => {
   }
 
   return cloneElement(trailIconComp, {
-    size
+    size,
+    disabled
   });
 };

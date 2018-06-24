@@ -77,6 +77,43 @@ export default class Cards extends Component {
             style={{ marginRight: 40, width: 300 }}
             allowClear={ true }
           />
+
+          <Input
+            label={"用户名"}
+            value={"TomChen"}
+            leanIcon={LeanIcon => (
+              <LeanIcon>
+                <VerifiedUser size={20} />
+              </LeanIcon>
+            )}
+            onChange={value => {
+              this.setState({
+                value1: value
+              });
+            }}
+            helpText={"禁用 disabled"}
+            disabled={ true }
+            style={{ marginRight: 40, width: 300 }}
+          />
+
+          <Input
+            mode={ "outlined" }
+            label={"用户名"}
+            value={"TomChen"}
+            leanIcon={LeanIcon => (
+              <LeanIcon>
+                <VerifiedUser size={20} />
+              </LeanIcon>
+            )}
+            onChange={value => {
+              this.setState({
+                value1: value
+              });
+            }}
+            helpText={"禁用 disabled"}
+            disabled={ true }
+            style={{ marginRight: 40, width: 300 }}
+          />
         </Flex>
 
         <Flex style={{ margin: 20 }}>
@@ -180,7 +217,7 @@ export default class Cards extends Component {
 
           <MDSelect
             size={"dense"}
-            label={"水果"}
+            label={"fruit"}
             value={this.state.selectedFruit}
             options={options}
             leanIcon={LeanIcon => (
@@ -195,6 +232,7 @@ export default class Cards extends Component {
             }}
             helpText={"请选择水果"}
             style={{ marginRight: 40, width: 300 }}
+            disabled={ true }
           />
 
           <MDSelect

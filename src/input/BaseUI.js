@@ -54,7 +54,13 @@ export const MDContainer = styled.div`
       )};
     `
   })};
-
+  ${ifProp(
+    "disabled",
+    css`
+      opacity: 0.6;
+      pointer-events: none;
+    `
+  )};
   ${StyledClearIcon} {
     transform: scale(0);
   }
@@ -77,7 +83,7 @@ export const LeanIcon = withRipple({
   height: 24px;
   overflow: hidden;
   z-index: 1;
-  color: ${styles.text.third};
+
   text-align: center;
   ${switchProp("size", {
     standard: css`
@@ -89,6 +95,16 @@ export const LeanIcon = withRipple({
       top: 14px;
     `
   })};
+
+  ${ifProp(
+    "disabled",
+    css`
+      color: ${styles.disabled};
+    `,
+    css`
+      color: ${styles.text.third};
+    `
+  )};
 `);
 
 export const TrailIcon = withRipple({
@@ -102,7 +118,6 @@ export const TrailIcon = withRipple({
   height: 24px;
   overflow: hidden;
   z-index: 1;
-  color: ${styles.text.third};
   text-align: center;
 
   ${switchProp("size", {
@@ -115,6 +130,16 @@ export const TrailIcon = withRipple({
       top: 14px;
     `
   })};
+
+  ${ifProp(
+    "disabled",
+    css`
+      color: ${styles.disabled};
+    `,
+    css`
+      color: ${styles.text.third};
+    `
+  )};
 `);
 
 export const BaseInput = styled.input`
@@ -139,6 +164,16 @@ export const BaseInput = styled.input`
   padding-left: ${ifProp("leanIcon", "40px", "12px")};
   padding-right: ${ifProp("trailIcon", "40px", "16px")};
   padding-bottom: 0;
+
+  ${ifProp(
+    "disabled",
+    css`
+      color: ${styles.disabled};
+    `,
+    css`
+      color: ${styles.text.primary};
+    `
+  )};
 `;
 
 export const BaseSpan = styled(BaseInput.withComponent("div"))`
@@ -160,9 +195,7 @@ export const BaseSpan = styled(BaseInput.withComponent("div"))`
 
 export const OutlineLabel = styled.span`
   position: absolute;
-
   font-size: 18px;
-
   text-overflow: ellipsis;
   white-space: nowrap;
   pointer-events: none;
@@ -171,7 +204,6 @@ export const OutlineLabel = styled.span`
   will-change: transform, color, left;
   font-weight: 400;
   display: inline-block;
-
   line-height: 18px;
   transition: transform 0.3s, left 0.3s ease-in-out;
   transform-origin: left;
@@ -256,10 +288,19 @@ export const HelpTextContainer = styled.div`
   })};
   left: 0;
   width: 100%;
-  color: ${styles.text.third};
   font-size: 12px;
   line-height: 16px;
   padding-left: 12px;
   padding-right: 12px;
   pointer-events: none;
+
+  ${ifProp(
+    "disabled",
+    css`
+      color: ${styles.disabled};
+    `,
+    css`
+      color: ${styles.text.third};
+    `
+  )};
 `;
