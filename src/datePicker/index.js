@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { Provider } from "mobx-react";
+import { Provider, Observer } from "mobx-react";
 import { lighten } from "polished";
 import { Flex } from "../grid";
 import styles from "../styles";
@@ -9,6 +9,7 @@ import DatePickerStore from "./DatePickerStore";
 import SelectedTimeContainer from "./SelectTimeContainer";
 import DateList from "./DateList";
 import { getScrollbarWidth } from "../util";
+import YearMonthList from "./YearMonthList";
 
 const Container = styled(Flex).attrs({
   flex: "inline-flex",
@@ -29,10 +30,9 @@ const WeekDiv = styled.div`
   line-height: 30px;
 `;
 
-const ListContainer = styled(Flex).attrs({
-  wrap: "wrap"
-})`
+const ListContainer = styled.div`
   height: 200px;
+  position: relative;
   overflow: auto;
 
   & .ReactVirtualized__Grid {
@@ -91,9 +91,15 @@ export default class extends PureComponent {
             <WeekDiv>周五</WeekDiv>
             <WeekDiv>周六</WeekDiv>
           </WeekList>
-          <ListContainer>
-            <DateList />
-          </ListContainer>
+          <Observer>
+            {() => (
+              <ListContainer>
+                <DateList />
+
+                {store.yearMonthOverviewPanel ? <YearMonthList /> : null}
+              </ListContainer>
+            )}
+          </Observer>
         </Container>
       </Provider>
     );

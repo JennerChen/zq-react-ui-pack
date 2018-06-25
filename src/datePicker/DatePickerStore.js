@@ -3,6 +3,9 @@ import moment from "moment";
 
 export default class DatePickerStore {
   @observable pickerProps = null;
+
+  @observable yearMonthOverviewPanel = false;
+
   dateListComponent = null;
 
   constructor(_) {
@@ -55,6 +58,27 @@ export default class DatePickerStore {
     return this.currentDay.diff(this.startTime, "week");
   }
 
+  @computed
+  get selectDayYearIndex() {
+    if (!this.selectedDay) return 0;
+    return this.selectedDay.diff(this.fromYear, "year");
+  }
+
+  @computed
+  get fromYear() {
+    return this.fromDay.startOf("year");
+  }
+
+  @computed
+  get toYear() {
+    return this.toDay.endOf("year");
+  }
+
+  @computed
+  get totalYears() {
+    return Math.max(1, this.toYear.diff(this.fromYear, "year"));
+  }
+
   @action.bound
   updatePickerProps(newProps) {
     this.pickerProps = newProps;
@@ -88,7 +112,7 @@ export default class DatePickerStore {
   scrollToTargetTime(targetTime) {
     if (this.dateListComponent) {
       this.dateListComponent.list.scrollToRow(
-        Math.min(this.totalWeeks, Math.max(0, targetTime.diff(this.startTime, "week") - 2))
+        Math.min(this.totalWeeks, Math.max(0, targetTime.diff(this.startTime, "week")))
       );
     }
   }
@@ -96,5 +120,15 @@ export default class DatePickerStore {
   @action.bound
   setSelectedDay(day) {
     this.pickerProps.onChange(day);
+  }
+
+  @action.bound
+  showYearMonthOverview() {
+    this.yearMonthOverviewPanel = true;
+  }
+
+  @action.bound
+  hideYearMonthOverview() {
+    this.yearMonthOverviewPanel = false;
   }
 }

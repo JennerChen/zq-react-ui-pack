@@ -1,117 +1,11 @@
 import React, { Component } from "react";
 import { inject, observer } from "mobx-react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { List } from "react-virtualized";
-import { ifProp, switchProp } from "styled-tools";
 import { Transition } from "react-spring";
 import { Flex } from "../grid";
-import styles from "../styles";
-import { getScrollbarWidth, withRipple } from "../util";
-
-const TimeInner = styled(
-  withRipple({
-    allowRipple: true,
-    rippleEffect: "center",
-    rippleShape: "circle",
-    rippleColor: styles.primary
-  })(Flex)
-).attrs({
-  flex: "inline-flex",
-  justifyContent: "center",
-  alignItems: "center",
-  direction: "column"
-})`
-  height: 35px;
-  width: 35px;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  border: 1px solid transparent;
-  font-size: 12px;
-  ${ifProp(
-    "highlight",
-    css`
-      background-color: ${styles.primary} !important;
-      color: #fff;
-    `
-  )};
-
-  ${ifProp(
-    "today",
-    css`
-      border-color: ${styles.primary};
-    `
-  )};
-`;
-
-const TimeColumn = styled(Flex).attrs({
-  flex: "inline-flex",
-  justifyContent: "center",
-  alignItems: "center"
-})`
-  user-select: none;
-  width: 40px;
-  height: 40px;
-  position: relative;
-  &:hover {
-    & ${TimeInner} {
-      background-color: #efefef;
-    }
-  }
-
-  ${ifProp(
-    "disabled",
-    css`
-      color: ${styles.disabled};
-
-      pointer-events: none;
-    `
-  )};
-
-  ${ifProp(
-    "showTopBorder",
-    css`
-      border-top: 1px solid #e2dfdf;
-    `
-  )};
-
-  ${ifProp(
-    "showLeftBorder",
-    css`
-      border-left: 1px solid #e2dfdf;
-    `
-  )};
-`;
-
-const TimeMention = styled.div`
-  font-size: 12px;
-
-  line-height: initial;
-  transform: scale(0.8);
-  height: 14px;
-  white-space: nowrap;
-  word-wrap: normal;
-  ${switchProp("color", {
-    red: css`
-      color: red;
-      ${ifProp(
-        "highlight",
-        css`
-          color: #fff;
-        `
-      )};
-    `,
-    gray: css`
-      color: ${styles.text.third};
-      ${ifProp(
-        "highlight",
-        css`
-          color: #fff;
-        `
-      )};
-    `
-  })};
-`;
+import { getScrollbarWidth } from "../util";
+import { TimeInner, TimeColumn, TimeMention } from "./baseUI";
 
 const YearMonthInfo = styled.div`
   position: absolute;
@@ -131,6 +25,7 @@ const DateSpan = styled.div`
   line-height: initial;
   height: 14px;
 `;
+
 @inject("store")
 @observer
 export default class extends Component {

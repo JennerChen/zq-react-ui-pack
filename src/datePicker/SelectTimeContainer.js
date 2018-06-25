@@ -3,7 +3,6 @@ import { inject, observer } from "mobx-react";
 import styled from "styled-components";
 import { Transition } from "react-spring";
 import { switchProp } from "styled-tools";
-import moment from "moment";
 import styles from "../styles";
 
 const SelectTimeContainer = styled.div`
@@ -37,7 +36,7 @@ const TextSpan = styled.span`
 @observer
 export default class extends Component {
   render() {
-    const { selectedDay, scrollToTargetTime, scrollToSelectedDay } = this.props.store;
+    const { selectedDay, scrollToSelectedDay, showYearMonthOverview } = this.props.store;
     let year = selectedDay ? selectedDay.year() : null;
     let monthDayInfo = selectedDay
       ? `${selectedDay.month() + 1}月 ${selectedDay.date()}日, ${switchProp("day", {
@@ -65,7 +64,7 @@ export default class extends Component {
                   <TextSpan
                     key={y}
                     style={{ opacity, top, fontSize: 14 }}
-                    onClick={() => scrollToTargetTime(moment("" + y))}>
+                    onClick={showYearMonthOverview}>
                     {y}
                   </TextSpan>
                 ))}

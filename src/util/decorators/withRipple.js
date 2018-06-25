@@ -124,7 +124,6 @@ function getDecorator(
           ...rest
         } = this.props;
         const { currentRipple } = this.state;
-        console.log(rest.onClick);
         return (
           <StyledComp
             ref={component => (this.component = component)}
