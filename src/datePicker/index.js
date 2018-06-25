@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { Provider } from "mobx-react";
@@ -29,24 +29,40 @@ const WeekDiv = styled.div`
   line-height: 30px;
 `;
 
-export default class extends Component {
+export default class extends PureComponent {
   static propTypes = {
     from: PropTypes.string,
     to: PropTypes.string,
     value: PropTypes.string,
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
+    height: PropTypes.number,
+    disabledDate: PropTypes.func
   };
 
   static defaultProps = {
-    from: "2015-01-01",
-    to: "2020-12-31"
+    from: "2001-01-01",
+    to: "2030-12-31",
+    disabledDate: () => false
   };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      store: new DatePickerStore(this.props)
-    };
+  state = {};
+
+  static getDerivedStateFromProps(props, state) {
+    if (!state.store) {
+      return {
+        store: new DatePickerStore(props)
+      };
+    }
+
+    if (props !== state.store.pickerProps) {
+      state.store.updatePickerProps(props);
+    }
+
+    return null;
+  }
+
+  getDatePickerApi() {
+    return this.state.store;
   }
 
   render() {

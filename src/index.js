@@ -20,6 +20,6 @@ export { default as Tooltip } from "./tooltip";
 
 export { Input, MDSelect, TrailIcon, LeanIcon } from "./input";
 
-export { default as DatePicker } from "./dataPicker";
+export { default as DatePicker } from "./datePicker";
 
 export const utils = _utils;

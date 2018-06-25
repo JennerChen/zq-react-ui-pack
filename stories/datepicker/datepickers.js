@@ -1,17 +1,24 @@
 import React, { Component } from "react";
 import { flex, DatePicker } from "../../src";
-import styled from "styled-components";
 
 export default class extends Component {
   state = {
-    loading: true
+    loading: true,
+    selectedDay: ""
   };
 
   render() {
     return (
       <div style={{ padding: 10 }}>
-        <DatePicker/>
-
+        <DatePicker
+          value={this.state.selectedDay}
+          onChange={day =>
+            this.setState({
+              selectedDay: day.format("YYYY-MM-DD")
+            })
+          }
+          disabledDate={date => date.year() === 2017}
+        />
       </div>
     );
   }

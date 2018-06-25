@@ -25,7 +25,9 @@ export default {
     "polished",
     "popper.js",
     "styled-icons/material",
-    "react-content-loader"
+    "react-content-loader",
+    "react-virtualized",
+    "moment"
   ],
   plugins: [
     clear({
