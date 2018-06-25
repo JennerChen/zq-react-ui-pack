@@ -37,6 +37,7 @@ export default class Buttons extends Component {
           size={24}
           icon={VerticalAlignTop}
           style={{ margin: "0 5px" }}
+          onClick={ () => console.log(111) }
         />
 
         <Button.Icon size={24} icon={VerticalAlignTop} />

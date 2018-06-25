@@ -132,6 +132,7 @@ export default class extends Component {
           </OptionsContainer>
         )}>
         <SelectContainer
+          onClick={() => console.log(222)}
           className={className}
           innerRef={container => (this.container = container)}
           style={style}>

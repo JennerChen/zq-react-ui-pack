@@ -1,6 +1,13 @@
 import React, { Component } from "react";
-import { Select } from "../../src";
+import { Select, utils } from "../../src";
+import styled from "styled-components";
 
+const TestEl = utils.withRipple(styled.div`
+    width: 100px;
+    height: 30px;
+    background-color: pink;
+    
+`);
 export default class extends Component {
   state = {
     selectedFruit: null
@@ -39,6 +46,8 @@ export default class extends Component {
             })
           }
         />
+
+        <TestEl onClick={ () => console.log(111) }/>
       </div>
     );
   }

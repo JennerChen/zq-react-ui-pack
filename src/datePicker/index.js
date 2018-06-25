@@ -29,6 +29,17 @@ const WeekDiv = styled.div`
   line-height: 30px;
 `;
 
+const ListContainer = styled(Flex).attrs({
+  wrap: "wrap"
+})`
+  height: 200px;
+  overflow: auto;
+
+  & .ReactVirtualized__Grid {
+    outline: none;
+  }
+`;
+
 export default class extends PureComponent {
   static propTypes = {
     from: PropTypes.string,
@@ -80,7 +91,9 @@ export default class extends PureComponent {
             <WeekDiv>周五</WeekDiv>
             <WeekDiv>周六</WeekDiv>
           </WeekList>
-          <DateList />
+          <ListContainer>
+            <DateList />
+          </ListContainer>
         </Container>
       </Provider>
     );

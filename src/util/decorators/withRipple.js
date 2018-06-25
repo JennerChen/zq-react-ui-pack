@@ -12,6 +12,8 @@ const RippleContainer = styled.span`
   top: 0;
   right: 0;
   bottom: 0;
+  //https://github.com/mui-org/material-ui/issues/5626
+  pointer-events: none;
 `;
 
 const RippleEffect = keyframes`
@@ -68,11 +70,11 @@ function getDecorator(
 
       componentDidMount() {
         this.dom = findDOMNode(this.component);
-        this.dom.addEventListener("mousedown", this.showRipple);
+        this.dom.addEventListener("mousedown", this.showRipple, false);
       }
 
       componentWillUnmount() {
-        this.dom.removeEventListener("mousedown", this.showRipple);
+        this.dom.removeEventListener("mousedown", this.showRipple, false);
       }
 
       cleanRipple(key) {
@@ -122,6 +124,7 @@ function getDecorator(
           ...rest
         } = this.props;
         const { currentRipple } = this.state;
+        console.log(rest.onClick);
         return (
           <StyledComp
             ref={component => (this.component = component)}

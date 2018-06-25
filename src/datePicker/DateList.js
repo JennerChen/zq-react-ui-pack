@@ -8,17 +8,6 @@ import { Flex } from "../grid";
 import styles from "../styles";
 import { getScrollbarWidth, withRipple } from "../util";
 
-const Container = styled(Flex).attrs({
-  wrap: "wrap"
-})`
-  height: 200px;
-  overflow: auto;
-
-  & .ReactVirtualized__Grid {
-    outline: none;
-  }
-`;
-
 const TimeInner = styled(
   withRipple({
     allowRipple: true,
@@ -140,13 +129,12 @@ const YearMonthInfo = styled.div`
 const DateSpan = styled.div`
   font-size: 12px;
   line-height: initial;
-  height: 12px;
+  height: 14px;
 `;
 @inject("store")
 @observer
 export default class extends Component {
   componentDidMount() {
-    console.log(this.list);
     this.props.store.bindDateListComponent(this);
   }
 
@@ -184,69 +172,68 @@ export default class extends Component {
     } = this.props.store;
     const currentString = currentDay.format("YYYY-MM-DD");
     return (
-      <Container>
-        <List
-          ref={list => (this.list = list)}
-          width={280 + getScrollbarWidth()}
-          height={200}
-          rowCount={Math.max(totalWeeks, 5)}
-          rowHeight={40}
-          scrollToIndex={currentDayIndex}
-          rowRenderer={({ key, index, isScrolling, isVisible, style }) => {
-            let weekStartTime = startTime.clone().add(index, "week");
-            let dayOfMonth = weekStartTime.date();
-            let yearMonthInfo =
-              isScrolling && 15 - dayOfMonth >= 0 && 15 - dayOfMonth < 7
-                ? `${weekStartTime.year()} ${this.renderMonth(weekStartTime.month())}`
-                : null;
+      <List
+        ref={list => (this.list = list)}
+        width={280 + getScrollbarWidth()}
+        height={200}
+        rowCount={Math.max(totalWeeks, 5)}
+        rowHeight={40}
+        scrollToIndex={currentDayIndex}
+        rowRenderer={({ key, index, isScrolling, isVisible, style }) => {
+          let weekStartTime = startTime.clone().add(index, "week");
+          let dayOfMonth = weekStartTime.date();
+          let yearMonthInfo =
+            isScrolling && 15 - dayOfMonth >= 0 && 15 - dayOfMonth < 7
+              ? `${weekStartTime.year()} ${this.renderMonth(weekStartTime.month())}`
+              : null;
 
-            return (
-              <Flex key={key} style={style}>
-                {[0, 1, 2, 3, 4, 5, 6].map(dayOfWeek => {
-                  let date = weekStartTime.clone().add(dayOfWeek, "day");
-                  let dateString = date.format("YYYY-MM-DD");
-                  let highlight = selectedDay
-                    ? dateString === selectedDay.format("YYYY-MM-DD")
-                    : false;
-                  let isFirstDayOfMonth = date.format("DD") === "01";
-                  let isFirstDayOfYear = date.format("MM-DD") === "01-01";
-                  let isInFirst7DayInMonth = date.date() <= 7;
-                  let showLeftBorder = isFirstDayOfMonth && date.day() !== 0;
-                  return (
-                    <TimeColumn
-                      key={"" + dayOfWeek}
-                      disabled={!checkTimeInRange(date) || !!pickerProps.disabledDate(date)}
-                      title={date.format("YYYY-MM-DD")}
-                      onClick={() => setSelectedDay(date)}
-                      showTopBorder={isInFirst7DayInMonth}
-                      showLeftBorder={showLeftBorder}>
-                      <TimeInner today={currentString === dateString} highlight={highlight}>
-                        {highlight || isFirstDayOfMonth || isFirstDayOfYear ? (
-                          <TimeMention highlight={highlight} color={"gray"}>
-                            {isFirstDayOfYear
-                              ? date.format("YYYY")
-                              : this.renderMonth(date.month())}
-                          </TimeMention>
-                        ) : currentString === date.format("YYYY-MM-DD") ? (
-                          <TimeMention color={"red"}>今日</TimeMention>
-                        ) : null}
-                        <DateSpan>{date.format("DD")}</DateSpan>
-                      </TimeInner>
-                    </TimeColumn>
-                  );
-                })}
-                <Transition from={{ opacity: 0 }} enter={{ opacity: 1 }} leave={{ opacity: 0 }}>
-                  {isScrolling
-                    ? ({ opacity }) => (
-                        <YearMonthInfo style={{ opacity }}>{yearMonthInfo}</YearMonthInfo>
-                      )
-                    : () => null}
-                </Transition>
-              </Flex>
-            );
-          }}
-        />
-      </Container>
+          return (
+            <Flex key={key} style={style}>
+              {[0, 1, 2, 3, 4, 5, 6].map(dayOfWeek => {
+                let date = weekStartTime.clone().add(dayOfWeek, "day");
+                let dateString = date.format("YYYY-MM-DD");
+                let highlight = selectedDay
+                  ? dateString === selectedDay.format("YYYY-MM-DD")
+                  : false;
+                let isFirstDayOfMonth = date.format("DD") === "01";
+                let isFirstDayOfYear = date.format("MM-DD") === "01-01";
+                let isInFirst7DayInMonth = date.date() <= 7;
+                let showLeftBorder = isFirstDayOfMonth && date.day() !== 0;
+                return (
+                  <TimeColumn
+                    key={"" + dayOfWeek}
+                    disabled={!checkTimeInRange(date) || !!pickerProps.disabledDate(date)}
+                    title={date.format("YYYY-MM-DD")}
+                    onClick={() => (highlight ? null : setSelectedDay(date))}
+                    showTopBorder={isInFirst7DayInMonth}
+                    showLeftBorder={showLeftBorder}>
+                    <TimeInner
+                      today={currentString === dateString}
+                      highlight={highlight}
+                      allowRipple={!highlight}>
+                      {highlight || isFirstDayOfMonth || isFirstDayOfYear ? (
+                        <TimeMention highlight={highlight} color={"gray"}>
+                          {isFirstDayOfYear ? date.format("YYYY") : this.renderMonth(date.month())}
+                        </TimeMention>
+                      ) : currentString === date.format("YYYY-MM-DD") ? (
+                        <TimeMention color={"red"}>今日</TimeMention>
+                      ) : null}
+                      <DateSpan>{date.format("DD")}</DateSpan>
+                    </TimeInner>
+                  </TimeColumn>
+                );
+              })}
+              <Transition from={{ opacity: 0 }} enter={{ opacity: 1 }} leave={{ opacity: 0 }}>
+                {isScrolling
+                  ? ({ opacity }) => (
+                      <YearMonthInfo style={{ opacity }}>{yearMonthInfo}</YearMonthInfo>
+                    )
+                  : () => null}
+              </Transition>
+            </Flex>
+          );
+        }}
+      />
     );
   }
 }
