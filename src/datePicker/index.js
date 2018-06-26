@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import { Provider, Observer } from "mobx-react";
 import { lighten } from "polished";
+import { Transition, animated } from "react-spring";
 import { Flex } from "../grid";
 import styles from "../styles";
 import DatePickerStore from "./DatePickerStore";
@@ -78,12 +79,13 @@ export default class extends PureComponent {
 
   render() {
     const { store } = this.state;
+
     return (
       <Provider store={store}>
         <Container>
           <SelectedTimeContainer />
           <WeekList style={{ width: 280 + getScrollbarWidth() }}>
-            <WeekDiv>周日</WeekDiv>
+            <WeekDiv onClick={() => store.scrollToTargetPos(store.selectedDay)}>周日</WeekDiv>
             <WeekDiv>周一</WeekDiv>
             <WeekDiv>周二</WeekDiv>
             <WeekDiv>周三</WeekDiv>
@@ -95,8 +97,25 @@ export default class extends PureComponent {
             {() => (
               <ListContainer>
                 <DateList />
-
-                {store.yearMonthOverviewPanel ? <YearMonthList /> : null}
+                <Transition
+                  native
+                  from={{ top: -200, opacity: 0.2 }}
+                  enter={{ top: 0, opacity: 1 }}
+                  leave={{ top: -200, opacity: 0.2 }}>
+                  {store.yearMonthOverviewPanel
+                    ? ({ top, opacity }) => (
+                        <animated.div
+                          style={{
+                            position: "absolute",
+                            width: "100%",
+                            top,
+                            opacity
+                          }}>
+                          <YearMonthList />
+                        </animated.div>
+                      )
+                    : () => null}
+                </Transition>
               </ListContainer>
             )}
           </Observer>

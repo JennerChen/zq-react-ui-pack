@@ -1,6 +1,18 @@
 import { observable, action, computed } from "mobx";
 import moment from "moment";
 
+//https://gist.github.com/andjosh/6764939
+//t = current time
+//b = start value
+//c = change in value
+//d = duration
+const easeInOutQuad = function(t, b, c, d) {
+  t /= d / 2;
+  if (t < 1) return (c / 2) * t * t + b;
+  t--;
+  return (-c / 2) * (t * (t - 2) - 1) + b;
+};
+
 export default class DatePickerStore {
   @observable pickerProps = null;
 
@@ -76,7 +88,7 @@ export default class DatePickerStore {
 
   @computed
   get totalYears() {
-    return Math.max(1, this.toYear.diff(this.fromYear, "year"));
+    return this.toYear.diff(this.fromYear, "year") + 1;
   }
 
   @action.bound
@@ -109,12 +121,30 @@ export default class DatePickerStore {
   }
 
   @action.bound
-  scrollToTargetTime(targetTime) {
-    if (this.dateListComponent) {
-      this.dateListComponent.list.scrollToRow(
-        Math.min(this.totalWeeks, Math.max(0, targetTime.diff(this.startTime, "week")))
-      );
+  scrollToTargetPos(targetTime, silence = false) {
+    let list = this.dateListComponent.list,
+      duration = 200,
+      increment = 20,
+      currentTime = 0,
+      start = this.dateListComponent.scrollTop,
+      to = list.getOffsetForRow({
+        index: targetTime.diff(this.startTime, "week")
+      });
+
+    if (silence) {
+      return list.scrollToPosition(to);
     }
+
+    const animateScroll = function() {
+      currentTime += increment;
+      let offset = easeInOutQuad(currentTime, start, to - start, duration);
+      list.scrollToPosition(offset);
+      if (currentTime < duration) {
+        setTimeout(animateScroll, increment);
+      }
+    };
+
+    animateScroll();
   }
 
   @action.bound

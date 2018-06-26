@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, PureComponent } from "react";
 import { inject, observer } from "mobx-react";
 import styled from "styled-components";
 import { List } from "react-virtualized";
@@ -25,6 +25,19 @@ const DateSpan = styled.div`
   line-height: initial;
   height: 14px;
 `;
+
+class YearMonthInfoContainer extends PureComponent {
+  render() {
+    const { isScrolling, yearMonthInfo } = this.props;
+    return (
+      <Transition from={{ opacity: 0 }} enter={{ opacity: 1 }} leave={{ opacity: 0 }}>
+        {isScrolling
+          ? ({ opacity }) => <YearMonthInfo style={{ opacity }}>{yearMonthInfo}</YearMonthInfo>
+          : () => null}
+      </Transition>
+    );
+  }
+}
 
 @inject("store")
 @observer
@@ -54,6 +67,10 @@ export default class extends Component {
     ][monthIndex];
   }
 
+  bindScrollInfo = ({ scrollTop }) => {
+    this.scrollTop = scrollTop;
+  };
+
   render() {
     const {
       totalWeeks,
@@ -68,6 +85,7 @@ export default class extends Component {
     const currentString = currentDay.format("YYYY-MM-DD");
     return (
       <List
+        onScroll={this.bindScrollInfo}
         ref={list => (this.list = list)}
         width={280 + getScrollbarWidth()}
         height={200}
@@ -118,13 +136,7 @@ export default class extends Component {
                   </TimeColumn>
                 );
               })}
-              <Transition from={{ opacity: 0 }} enter={{ opacity: 1 }} leave={{ opacity: 0 }}>
-                {isScrolling
-                  ? ({ opacity }) => (
-                      <YearMonthInfo style={{ opacity }}>{yearMonthInfo}</YearMonthInfo>
-                    )
-                  : () => null}
-              </Transition>
+              <YearMonthInfoContainer isScrolling={isScrolling} yearMonthInfo={yearMonthInfo} />
             </Flex>
           );
         }}

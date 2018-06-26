@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { inject, observer } from "mobx-react";
 import { List } from "react-virtualized";
-//import { Transition } from "react-spring";
 import { Flex } from "../grid";
 import { getScrollbarWidth } from "../util";
 import { TimeInner, TimeColumn } from "./baseUI";
@@ -58,7 +57,7 @@ export default class extends Component {
       selectedDay,
       checkTimeInRange,
       currentDay,
-      scrollToTargetTime,
+      scrollToTargetPos,
       hideYearMonthOverview
     } = this.props.store;
     const currentString = currentDay.format("YYYY-MM");
@@ -91,7 +90,7 @@ export default class extends Component {
                         title={monthString}
                         disabled={!checkTimeInRange(month)}
                         onClick={() => {
-                          scrollToTargetTime(month);
+                          scrollToTargetPos(month);
                           hideYearMonthOverview();
                         }}>
                         <TimeInner

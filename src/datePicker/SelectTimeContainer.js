@@ -36,7 +36,13 @@ const TextSpan = styled.span`
 @observer
 export default class extends Component {
   render() {
-    const { selectedDay, scrollToSelectedDay, showYearMonthOverview } = this.props.store;
+    const {
+      selectedDay,
+      scrollToSelectedDay,
+      showYearMonthOverview,
+      hideYearMonthOverview,
+      yearMonthOverviewPanel
+    } = this.props.store;
     let year = selectedDay ? selectedDay.year() : null;
     let monthDayInfo = selectedDay
       ? `${selectedDay.month() + 1}月 ${selectedDay.date()}日, ${switchProp("day", {
@@ -64,7 +70,9 @@ export default class extends Component {
                   <TextSpan
                     key={y}
                     style={{ opacity, top, fontSize: 14 }}
-                    onClick={showYearMonthOverview}>
+                    onClick={
+                      yearMonthOverviewPanel ? hideYearMonthOverview : showYearMonthOverview
+                    }>
                     {y}
                   </TextSpan>
                 ))}
