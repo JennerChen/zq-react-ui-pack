@@ -85,7 +85,7 @@ export default class extends PureComponent {
         <Container>
           <SelectedTimeContainer />
           <WeekList style={{ width: 280 + getScrollbarWidth() }}>
-            <WeekDiv onClick={() => store.scrollToTargetPos(store.selectedDay)}>周日</WeekDiv>
+            <WeekDiv>周日</WeekDiv>
             <WeekDiv>周一</WeekDiv>
             <WeekDiv>周二</WeekDiv>
             <WeekDiv>周三</WeekDiv>

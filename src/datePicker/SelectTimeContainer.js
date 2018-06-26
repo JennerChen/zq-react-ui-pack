@@ -17,6 +17,7 @@ const CurrentYear = styled.div`
   height: 22px;
   position: relative;
   overflow: hidden;
+  text-align: left;
 `;
 
 const CurrentTime = styled.div`
@@ -25,6 +26,7 @@ const CurrentTime = styled.div`
   height: 32px;
   position: relative;
   overflow: hidden;
+  text-align: left;
 `;
 
 const TextSpan = styled.span`
